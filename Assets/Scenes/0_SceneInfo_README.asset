@@ -15,6 +15,12 @@ MonoBehaviour:
   icon: {fileID: 0}
   title: Scene Information
   sections:
+  - heading: Required for Every Scene
+    text: Each scene needs a global volume, player, and Camera asset pack. All should
+      be found in the prefabs folder. You will need to connect specific assets from
+      camera and player to each other
+    linkText: 
+    url: 
   - heading: Testing Room
     text: Place to test the character, new weapons/mechanics, and AI
     linkText: 
