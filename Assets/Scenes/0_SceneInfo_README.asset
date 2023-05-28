@@ -17,8 +17,9 @@ MonoBehaviour:
   sections:
   - heading: Required for Every Scene
     text: Each scene needs a global volume, player, and Camera asset pack. All should
-      be found in the prefabs folder. You will need to connect specific assets from
-      camera and player to each other
+      be found in the prefabs folder. You just need to move in the prefab RequiredScene
+      and right click then "unpack". Afterwards remove everything from the RequiredScene
+      Empty
     linkText: 
     url: 
   - heading: Testing Room
