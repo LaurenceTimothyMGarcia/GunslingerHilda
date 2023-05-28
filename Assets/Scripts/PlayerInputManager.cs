@@ -21,11 +21,14 @@ namespace PlayerInput
         private InputAction crouchAction;
         private InputAction lookAction;
         private InputAction jumpAction;
+        private InputAction fireAction;
+        private InputAction aimAction;
 
         //Basic Movement
         private Vector2 movement;
         private bool movementPressed;
         private bool sprint;
+        [Header("Determines if player needs to hold or tap to trigger")]
         [SerializeField] private bool sprintHold;
         private bool crouch;
         [SerializeField] private bool crouchHold;
@@ -37,6 +40,14 @@ namespace PlayerInput
         //Jumping Movement
         private bool jump;
         private bool wallJump;
+
+        // Fire/shooting
+        private bool fire;
+        [SerializeField] private bool fireHold;
+
+        // Aim
+        private bool aim;
+        [SerializeField] private bool aimHold;
 
         //Singleton for only one Input Manager
         private void Awake()
@@ -59,13 +70,8 @@ namespace PlayerInput
             crouchAction = input.Player.Crouch;
             lookAction = input.Player.Look;
             jumpAction = input.Player.Jump;
-
-            //May not need this since its in OnEnable() method as well
-            moveAction.Enable();
-            sprintAction.Enable();
-            crouchAction.Enable();
-            lookAction.Enable();
-            jumpAction.Enable();
+            fireAction = input.Player.Fire;
+            aimAction = input.Player.Aim;
 
             //Sets player input values with listeners
 
@@ -123,6 +129,26 @@ namespace PlayerInput
             //JUMPS
             jumpAction.performed += setJump;
             jumpAction.canceled += setJump;
+
+            //Fire Button
+            fireAction.performed += setFire;
+            //Set a toggle bool for fire
+            //True - Hold Down to fire
+            //False - Toggle to fire
+            if (fireHold)
+            {
+                fireAction.canceled += setFire;
+            }
+
+            //Aim Button
+            aimAction.performed += setAim;
+            //Set a toggle bool for Aim
+            //True - Hold Down to Aim
+            //False - Toggle to Aim
+            if (aimHold)
+            {
+                aimAction.canceled += setAim;
+            }
         }
 
         //MOVEMENT SETTER AND GETTER
@@ -254,23 +280,49 @@ namespace PlayerInput
             return jump;
         }
 
+        //Sets fire boolean to true or false
+        public void setFire(InputAction.CallbackContext ctx)
+        {
+            if (fire)
+            {
+                fire = false;
+            }
+            else
+            {
+                fire = true;
+            }
+        }
+        public bool firePressed()
+        {
+            return fire;
+        }
+
+        //Sets aim boolean to true or false
+        public void setAim(InputAction.CallbackContext ctx)
+        {
+            if (aim)
+            {
+                aim = false;
+            }
+            else
+            {
+                aim = true;
+            }
+        }
+        public bool aimPressed()
+        {
+            return aim;
+        }
+
 
         //When script is enabled and disabled
         private void OnEnable()
         {
-            moveAction.Enable();
-            sprintAction.Enable();
-            crouchAction.Enable();
-            lookAction.Enable();
-            jumpAction.Enable();
+            input.Enable();
         }
         void OnDisable()
         {
-            moveAction.Disable();
-            sprintAction.Disable();
-            crouchAction.Disable();
-            lookAction.Disable();
-            jumpAction.Disable();
+            input.Disable();
         }
     }
 }
