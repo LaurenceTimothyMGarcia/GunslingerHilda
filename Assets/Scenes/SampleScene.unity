@@ -318,6 +318,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &289488844 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5131172758491866978, guid: 7251728636a4d6049a777dd1a9479b0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5131172758719689384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &289488846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5131172758491866980, guid: 7251728636a4d6049a777dd1a9479b0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5131172758719689384}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8549a943c0608428ddbc960ff563f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +451,43 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!4 &1231237693 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 538512536792365806, guid: 7251728636a4d6049a777dd1a9479b0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5131172758719689384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1585250767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 538512537080670463, guid: 7251728636a4d6049a777dd1a9479b0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5131172758719689384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1585250773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585250767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20f12fb0a5922e4ab060849147dcae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 1231237693}
+  playerCam: {fileID: 289488844}
+  dashForce: 20
+  dashUpwardForce: 0
+  dashDuration: 0.25
+  dashCd: 2
+  cam: {fileID: 289488846}
+  ogFov: 0
+  dashFov: 100
+  useCameraForward: 1
+  allowAllDirections: 1
+  disableGravity: 0
+  resetVel: 1
 --- !u!1001 &5131172758719689384
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ namespace PlayerInput
         [SerializeField] private float sprintSpeed;
         private float moveSpeed;
 
+        public float dashSpeed;
+        public float dashSpeedChangeFactor;
 
         //Friction so the speed doesn't go on forever
         [SerializeField] private float groundDrag;
@@ -68,8 +70,11 @@ namespace PlayerInput
             aiming,
             sprinting,
             crouching,
+            dashing,
             air
         }
+
+        public bool dashing;
 
         // Start is called before the first frame update
         private void Start()
@@ -97,7 +102,7 @@ namespace PlayerInput
             StateHandler();
 
             //Add in the drag
-            if (grounded)
+            if (state == MovementState.sprinting || state == MovementState.aiming || state == MovementState.crouching)
             {
                 rb.drag = groundDrag;
             }
@@ -146,41 +151,103 @@ namespace PlayerInput
             }
         }
 
+        private float desiredMoveSpeed;
+        private float lastDesiredMoveSpeed;
+        private MovementState lastState;
+        private bool keepMomentum;
 
         //Statemanagement System
         private void StateHandler()
         {
-            //State - Crouching
-            if (PlayerInputManager.Instance.crouchPressed())
+            // State - Dashing
+            if (dashing)
             {
-                state = MovementState.crouching;
-                moveSpeed = crouchSpeed;
+                state = MovementState.dashing;
+                desiredMoveSpeed = dashSpeed;
+                speedChangeFactor = dashSpeedChangeFactor;
             }
 
-            //State - Aiming
+            // State - Crouching
+            else if (PlayerInputManager.Instance.crouchPressed())
+            {
+                state = MovementState.crouching;
+                desiredMoveSpeed = crouchSpeed;
+            }
+
+            // State - Aiming
             else if (grounded && PlayerInputManager.Instance.aimPressed())
             {
                 state = MovementState.aiming;
-                moveSpeed = aimSpeed;
+                desiredMoveSpeed = aimSpeed;
             }
 
-            //State - Sprinting
+            // State - Sprinting
             else if (grounded)
             {
                 state = MovementState.sprinting;
-                moveSpeed = sprintSpeed;
+                desiredMoveSpeed = sprintSpeed;
             }
 
-            //State - Air
+            // State - Air
             else
             {
                 state = MovementState.air;
+
+                desiredMoveSpeed = sprintSpeed;
             }
+
+            bool desiredMoveSpeedChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
+            if (lastState == MovementState.dashing)
+            {
+                keepMomentum = true;
+            }
+
+            if (desiredMoveSpeedChanged)
+            {
+                if (keepMomentum)
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(SmoothlyLerpMoveSpeed());
+                }
+                else
+                {
+                    StopAllCoroutines();
+                    moveSpeed = desiredMoveSpeed;
+                }
+            }
+
+            lastDesiredMoveSpeed = desiredMoveSpeed;
+            lastState = state;
+        }
+
+        private float speedChangeFactor;
+        private IEnumerator SmoothlyLerpMoveSpeed()
+        {
+            // lerp move speed to desired value
+            float time = 0;
+            float difference = Mathf.Abs(desiredMoveSpeed - moveSpeed);
+            float startValue = moveSpeed;
+
+            float boostFactor = speedChangeFactor;
+
+            while (time < difference)
+            {
+                moveSpeed = Mathf.Lerp(startValue, desiredMoveSpeed, time / difference);
+                time += Time.deltaTime * boostFactor;
+
+                yield return null;
+            }
+
+            moveSpeed = desiredMoveSpeed;
+            speedChangeFactor = 1f;
+            keepMomentum = false;
         }
 
         //Moves the player
         private void MovePlayer()
         {
+            if (state == MovementState.dashing) return;
+
             //Calculate movement direction 
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 

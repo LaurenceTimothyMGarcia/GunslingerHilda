@@ -245,6 +245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimSpeed: 5
   sprintSpeed: 20
+  dashSpeed: 50
+  dashSpeedChangeFactor: 50
   groundDrag: 4
   jumpForce: 7
   jumpCooldown: 0.25
@@ -258,6 +260,7 @@ MonoBehaviour:
   maxSlopeAngle: 40
   orientation: {fileID: 4633280688078813485}
   state: 0
+  dashing: 0
 --- !u!1 &4633280688058326121
 GameObject:
   m_ObjectHideFlags: 0

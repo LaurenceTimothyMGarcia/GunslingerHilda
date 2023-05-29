@@ -92,6 +92,7 @@ namespace PlayerInput
             //Checks for dash button
             //Current version of dash is holding it down to run
             dashAction.performed += setDash;
+            dashAction.canceled += setDash;
             //Set a toggle bool for dash
             //True - Hold Down to run
             //False - Toggle to run
