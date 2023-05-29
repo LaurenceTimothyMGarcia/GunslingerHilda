@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a013528fc42284f95444b70993fdb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprintHold: 0
+  dashHold: 0
   crouchHold: 1
   fireHold: 0
   aimHold: 1
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b180d238c9a524c4997ceda15f0171d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 10
+  aimSpeed: 5
   sprintSpeed: 20
   groundDrag: 4
   jumpForce: 7

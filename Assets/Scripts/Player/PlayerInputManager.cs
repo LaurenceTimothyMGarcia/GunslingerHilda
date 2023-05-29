@@ -17,7 +17,7 @@ namespace PlayerInput
         //Input controller
         private InputController input;
         private InputAction moveAction;
-        private InputAction sprintAction;
+        private InputAction dashAction;
         private InputAction crouchAction;
         private InputAction lookAction;
         private InputAction jumpAction;
@@ -27,9 +27,9 @@ namespace PlayerInput
         //Basic Movement
         private Vector2 movement;
         private bool movementPressed;
-        private bool sprint;
+        private bool dash;
         [Header("Determines if player needs to hold or tap to trigger")]
-        [SerializeField] private bool sprintHold;
+        [SerializeField] private bool dashHold;
         private bool crouch;
         [SerializeField] private bool crouchHold;
 
@@ -66,7 +66,7 @@ namespace PlayerInput
             //Initialize Input
             input = new InputController();
             moveAction = input.Player.Move;
-            sprintAction = input.Player.Sprint;
+            dashAction = input.Player.Dash;
             crouchAction = input.Player.Crouch;
             lookAction = input.Player.Look;
             jumpAction = input.Player.Jump;
@@ -89,15 +89,15 @@ namespace PlayerInput
             moveAction.canceled += ctx => movement = Vector2.zero;
 
 
-            //Checks for Sprinting button
-            //Current version of sprint is holding it down to run
-            sprintAction.performed += setSprint;
-            //Set a toggle bool for sprint
+            //Checks for dash button
+            //Current version of dash is holding it down to run
+            dashAction.performed += setDash;
+            //Set a toggle bool for dash
             //True - Hold Down to run
             //False - Toggle to run
-            if (sprintHold)
+            if (dashHold)
             {
-                sprintAction.canceled += setSprint;
+                dashAction.canceled += setDash;
             }
 
 
@@ -189,21 +189,21 @@ namespace PlayerInput
             return movementPressed;
         }
 
-        //SPRINT SETTER AND GETTER
-        public void setSprint(InputAction.CallbackContext ctx)
+        //dash SETTER AND GETTER
+        public void setDash(InputAction.CallbackContext ctx)
         {
-            if (sprint)
+            if (dash)
             {
-                sprint = false;
+                dash = false;
             }
             else
             {
-                sprint = true;
+                dash = true;
             }
         }
-        public bool sprintPressed()
+        public bool dashPressed()
         {
-            return sprint;
+            return dash;
         }
 
         //Sets Crouch boolean to true or false

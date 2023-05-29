@@ -14,7 +14,7 @@ namespace PlayerInput
 
         [Header("Movement")]
         //Base movement speed of the player
-        [SerializeField] private float walkSpeed;
+        [SerializeField] private float aimSpeed;
         [SerializeField] private float sprintSpeed;
         private float moveSpeed;
 
@@ -65,7 +65,7 @@ namespace PlayerInput
         //State machine for movement
         public enum MovementState
         {
-            walking,
+            aiming,
             sprinting,
             crouching,
             air
@@ -157,18 +157,18 @@ namespace PlayerInput
                 moveSpeed = crouchSpeed;
             }
 
+            //State - Aiming
+            else if (grounded && PlayerInputManager.Instance.aimPressed())
+            {
+                state = MovementState.aiming;
+                moveSpeed = aimSpeed;
+            }
+
             //State - Sprinting
-            else if (grounded && PlayerInputManager.Instance.sprintPressed())
+            else if (grounded)
             {
                 state = MovementState.sprinting;
                 moveSpeed = sprintSpeed;
-            }
-
-            //State - Walking
-            else if (grounded)
-            {
-                state = MovementState.walking;
-                moveSpeed = walkSpeed;
             }
 
             //State - Air
