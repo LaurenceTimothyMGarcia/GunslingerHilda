@@ -41,11 +41,11 @@ public static class Noise
             for (int x = 0; x < mapWidth; x++)
             {
                 // Generates border (very square) around the terrain
-                if (x < mapWidth * border || x > mapWidth - (mapWidth * border) || y < mapHeight * border || y > mapHeight - (mapHeight * border))
-                {
-                    noiseMap[x, y] = 1;
-                    continue;
-                }
+                // if (x < mapWidth * border || x > mapWidth - (mapWidth * border) || y < mapHeight * border || y > mapHeight - (mapHeight * border))
+                // {
+                //     noiseMap[x, y] = 1;
+                //     continue;
+                // }
 
                 float amplitude = 1;
                 float frequency = 1;
