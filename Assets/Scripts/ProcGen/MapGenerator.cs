@@ -17,6 +17,9 @@ public class MapGenerator : MonoBehaviour
     const int mapChunkSize = 241;
     [Range(0,6)]
     public int levelOfDetail;
+    [Range(0,1)]
+    [Tooltip("Border around the map")]
+    public float borderThickness;
 
     [Header("Detail of map")]
     [Tooltip("Larger the number, less detail; Smaller the number, more detail")]
@@ -45,7 +48,7 @@ public class MapGenerator : MonoBehaviour
 
     public void GenerateMap()
     {
-        float[,] noiseMap = Noise.GenerateNoiseMap(mapChunkSize, mapChunkSize, seed, noiseScale, octaves, persistance, lacunarity, offset);
+        float[,] noiseMap = Noise.GenerateNoiseMap(mapChunkSize, mapChunkSize, seed, noiseScale, octaves, persistance, lacunarity, offset, borderThickness);
 
         // Change color of pixel
         Color[] colorMap = new Color[mapChunkSize * mapChunkSize];
