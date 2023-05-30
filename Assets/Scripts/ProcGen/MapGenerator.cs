@@ -40,6 +40,10 @@ public class MapGenerator : MonoBehaviour
 
     [Header("Falloff Map")]
     public bool useFalloff;
+    [Range(1,10)]
+    public float falloffCurve;
+    [Range(1,10)]
+    public float falloffShift;
 
     [Header("Height of mesh")]
     public float meshHeightMultipler;
@@ -54,7 +58,7 @@ public class MapGenerator : MonoBehaviour
 
     void Awake()
     {
-        falloffMap = FalloffGenerator.GenerateFalloffMap(mapChunkSize);
+        falloffMap = FalloffGenerator.GenerateFalloffMap(mapChunkSize, falloffCurve, falloffShift);
     }
 
     public void GenerateMap()
@@ -69,7 +73,7 @@ public class MapGenerator : MonoBehaviour
             {
                 if (useFalloff)
                 {
-                    noiseMap[x,y] = Mathf.Clamp01(noiseMap[x,y] - falloffMap[x,y]);
+                    noiseMap[x,y] = Mathf.Clamp01(noiseMap[x,y] + falloffMap[x,y]);
                 }
 
                 float currentHeight = noiseMap[x, y];
@@ -99,7 +103,7 @@ public class MapGenerator : MonoBehaviour
         }
         else if (drawMode == DrawMode.FalloffMap)
         {
-            display.DrawTexture(TextureGenerator.TextureFromHeightMap(FalloffGenerator.GenerateFalloffMap(mapChunkSize)));
+            display.DrawTexture(TextureGenerator.TextureFromHeightMap(FalloffGenerator.GenerateFalloffMap(mapChunkSize, falloffCurve, falloffShift)));
         }
     }
 
@@ -116,7 +120,7 @@ public class MapGenerator : MonoBehaviour
             octaves = 0;
         }
 
-        falloffMap = FalloffGenerator.GenerateFalloffMap(mapChunkSize);
+        falloffMap = FalloffGenerator.GenerateFalloffMap(mapChunkSize, falloffCurve, falloffShift);
     }
 }
 
