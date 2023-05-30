@@ -39,7 +39,6 @@ public class MapGenerator : MonoBehaviour
     public bool useFalloff;
     [Range(1,10)]
     public float falloffCurve;
-    [Range(1,10)]
     public float falloffShift;
 
     [Header("Height of mesh")]
