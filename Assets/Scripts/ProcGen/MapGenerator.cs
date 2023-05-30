@@ -71,6 +71,8 @@ public class MapGenerator : MonoBehaviour
         {
             for (int x = 0; x < mapChunkSize; x++)
             {
+                // Adding creates canyon walls
+                // Subtracting creates ocean layer
                 if (useFalloff)
                 {
                     noiseMap[x,y] = Mathf.Clamp01(noiseMap[x,y] + falloffMap[x,y]);
