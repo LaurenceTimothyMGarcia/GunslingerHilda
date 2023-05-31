@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7602dc08a23b22a4ebcbd08f6dee8e8e, type: 3}
   m_Name: CanyonNoise
   m_EditorClassIdentifier: 
+  autoUpdate: 1
   normalizeMode: 0
   noiseScale: 25
   octaves: 4

@@ -41,6 +41,14 @@ public class MapGenerator : MonoBehaviour
         DrawMapOnRun();
     }
 
+    void OnValuesUpdated()
+    {
+        if (!Application.isPlaying)
+        {
+            DrawMapInEditor();
+        }
+    }
+
     public void DrawMapOnRun()
     {
         MapData mapData = GenerateMapData(Vector2.zero);
@@ -169,7 +177,17 @@ public class MapGenerator : MonoBehaviour
     // Called automatically if values in edtior of current script is changed
     void OnValidate()
     {
+        if (terrainData != null)
+        {
+            terrainData.OnValuesUpdated -= OnValuesUpdated;
+            terrainData.OnValuesUpdated += OnValuesUpdated;
+        }
 
+        if (noiseData != null)
+        {
+            noiseData.OnValuesUpdated -= OnValuesUpdated;
+            noiseData.OnValuesUpdated += OnValuesUpdated;
+        }
 
         falloffMap = FalloffGenerator.GenerateFalloffMap(mapChunkSize, terrainData.falloffCurve, terrainData.falloffShift);
     }

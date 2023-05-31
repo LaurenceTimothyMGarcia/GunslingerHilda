@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b8ff2e0ccf3cf47b531137c53fa3a0, type: 3}
   m_Name: CanyonTerrain
   m_EditorClassIdentifier: 
+  autoUpdate: 1
   uniformScale: 1
   useFalloff: 1
   falloffCurve: 5.44
