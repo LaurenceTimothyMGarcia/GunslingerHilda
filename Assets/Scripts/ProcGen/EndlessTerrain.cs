@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EndlessTerrain : MonoBehaviour
 {
-    const float scale = 1f;
 
     const float viewerMoveThreshold = 25f;
     const float sqrViewerMoveThreshold = viewerMoveThreshold * viewerMoveThreshold;
@@ -37,7 +36,7 @@ public class EndlessTerrain : MonoBehaviour
 
     void Update()
     {
-        viewerPosition = new Vector2(viewer.position.x, viewer.position.z) / scale;
+        viewerPosition = new Vector2(viewer.position.x, viewer.position.z) / mapGenerator.terrainData.uniformScale;
 
         if ((viewerPosOld - viewerPosition).sqrMagnitude > sqrViewerMoveThreshold)
         {
@@ -107,9 +106,9 @@ public class EndlessTerrain : MonoBehaviour
             // meshCollider = meshObject.AddComponent<MeshCollider>();
             meshRenderer.material = mat;
 
-            meshObject.transform.position = positionV3 * scale;
+            meshObject.transform.position = positionV3 * mapGenerator.terrainData.uniformScale;
             meshObject.transform.parent = parent;
-            meshObject.transform.localScale = Vector3.one * scale;
+            meshObject.transform.localScale = Vector3.one * mapGenerator.terrainData.uniformScale;
             SetVisible(false);
 
             lodMeshes = new LODMesh[detailLevels.Length];
