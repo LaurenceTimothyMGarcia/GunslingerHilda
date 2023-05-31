@@ -62,6 +62,16 @@ public class MapGenerator : MonoBehaviour
     void Awake()
     {
         falloffMap = FalloffGenerator.GenerateFalloffMap(mapChunkSize, falloffCurve, falloffShift);
+
+        DrawMapOnRun();
+    }
+
+    public void DrawMapOnRun()
+    {
+        MapData mapData = GenerateMapData(Vector2.zero);
+        MapDisplay display = FindObjectOfType<MapDisplay>();
+
+        display.DrawMesh(MeshGenerator.GenerateTerrainMesh(mapData.heightMap, meshHeightMultipler, meshHeightCurve, editorLOD), TextureGenerator.TextureFromColorMap(mapData.colorMap, mapChunkSize, mapChunkSize));
     }
 
     public void DrawMapInEditor()
