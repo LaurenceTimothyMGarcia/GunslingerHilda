@@ -15,7 +15,7 @@ MonoBehaviour:
   autoUpdate: 1
   uniformScale: 1
   useFalloff: 1
-  falloffCurve: 5.44
+  falloffCurve: 5.63
   falloffShift: 23.73
   meshHeightMultipler: 20
   meshHeightCurve:
