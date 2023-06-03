@@ -19,6 +19,8 @@ public class MapGenerator : MonoBehaviour
     public NoiseData noiseData;
     public TextureData textureData;
 
+    public MeshData meshData;
+
     public Material terrainMaterial;
 
     [Header("Dimensions of map")]
@@ -112,7 +114,7 @@ public class MapGenerator : MonoBehaviour
 
     public void MeshDataThread(MapData mapData, int lod, Action<MeshData> callback)
     {
-        MeshData meshData = MeshGenerator.GenerateTerrainMesh(mapData.heightMap, terrainData.meshHeightMultipler, terrainData.meshHeightCurve, lod);
+        meshData = MeshGenerator.GenerateTerrainMesh(mapData.heightMap, terrainData.meshHeightMultipler, terrainData.meshHeightCurve, lod);
         lock (meshThreadInfoQueue)
         {
             meshThreadInfoQueue.Enqueue(new MapThreadInfo<MeshData>(callback, meshData));
@@ -140,7 +142,7 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    MapData GenerateMapData(Vector2 center)
+    public MapData GenerateMapData(Vector2 center)
     {
         float[,] noiseMap = Noise.GenerateNoiseMap(mapChunkSize, mapChunkSize, noiseData.seed, noiseData.noiseScale, noiseData.octaves, noiseData.persistance, noiseData.lacunarity, center + noiseData.offset, noiseData.normalizeMode);
 
