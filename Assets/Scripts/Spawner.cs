@@ -27,6 +27,9 @@ public class Spawner : MonoBehaviour
     {
         List<Vector3> validPoints = ValidLocations(points, groundLevel);
 
+        Debug.Log("POINTS ARRAY SIZE: " + points.Length);
+        Debug.Log("VALID POINTS SIZE: " + validPoints.Count);
+
         int randomPoint = Random.Range(0, validPoints.Count);
 
         Vector3 selectedPoint = validPoints[randomPoint];
