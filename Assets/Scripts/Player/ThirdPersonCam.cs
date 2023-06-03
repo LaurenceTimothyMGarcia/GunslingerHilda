@@ -41,11 +41,11 @@ namespace PlayerInput
         void Update()
         {
             // Swap styles
-            if (!PlayerInputManager.Instance.aimPressed())
+            if (!PlayerInputManager.Instance.aimPressed() && currentStyle != CameraStyle.Standard)
             {
                 SwitchCameraStyle(CameraStyle.Standard);
             }
-            if (PlayerInputManager.Instance.aimPressed())
+            if (PlayerInputManager.Instance.aimPressed() && currentStyle != CameraStyle.Combat)
             {
                 SwitchCameraStyle(CameraStyle.Combat);
             }
