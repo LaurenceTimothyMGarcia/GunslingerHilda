@@ -17,7 +17,9 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Obtain noise map for comparison
         heightMap = mapGen.GenerateMapData(Vector2.zero).heightMap;
+        // Gets directly from mesh object
         points = meshVert.mesh.vertices;
 
         SpawnEntity(player, spawnGroundLevel, points);
@@ -35,6 +37,8 @@ public class Spawner : MonoBehaviour
         Vector3 selectedPoint = validPoints[randomPoint];
         Debug.Log("Location: " + selectedPoint);
 
+        // If player just change location, that way you dont need to readd everything
+        // Else just spawn object
         if (entity.gameObject.tag == "Player")
         {
             entity.transform.position = selectedPoint * mapGen.terrainData.uniformScale;
@@ -47,6 +51,8 @@ public class Spawner : MonoBehaviour
         
     }
 
+    // Looks through each pixel on the noise map and sees if its less than ground level value
+    // If less then add corresponding vertex to the valid location list
     private List<Vector3> ValidLocations(Vector3[] points, float groundLevel)
     {
         List<Vector3> validPoints = new List<Vector3>();
