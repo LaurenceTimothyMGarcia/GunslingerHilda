@@ -21,6 +21,7 @@ public class NoiseData : UpdateableData
 
     [Header("Seed within Random Generation")]
     public int seed;
+    public bool setSeed;
     public Vector2 offset;
 
     protected override void OnValidate()

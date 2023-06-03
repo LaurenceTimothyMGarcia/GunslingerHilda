@@ -144,7 +144,18 @@ public class MapGenerator : MonoBehaviour
 
     public MapData GenerateMapData(Vector2 center)
     {
-        float[,] noiseMap = Noise.GenerateNoiseMap(mapChunkSize, mapChunkSize, noiseData.seed, noiseData.noiseScale, noiseData.octaves, noiseData.persistance, noiseData.lacunarity, center + noiseData.offset, noiseData.normalizeMode);
+        int randomNum;
+
+        if (noiseData.setSeed)
+        {
+            randomNum = noiseData.seed;
+        }
+        else
+        {
+            randomNum = UnityEngine.Random.Range(-10000, 10000);
+        }
+
+        float[,] noiseMap = Noise.GenerateNoiseMap(mapChunkSize, mapChunkSize, randomNum, noiseData.noiseScale, noiseData.octaves, noiseData.persistance, noiseData.lacunarity, center + noiseData.offset, noiseData.normalizeMode);
 
         if (terrainData.useFalloff)
         {
