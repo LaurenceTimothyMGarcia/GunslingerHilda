@@ -59,7 +59,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Ground_1:
-        m_Texture: {fileID: 2800000, guid: 7be184706af5fab43bba7f39c1b2c716, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7a0cab854911f4846ad287ced27a9427, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Ground_1_N:
+        m_Texture: {fileID: 2800000, guid: 2527cd420c520c74d8e912320c7ac7ad, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Ground_2:
@@ -95,7 +99,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Walls_1:
-        m_Texture: {fileID: 2800000, guid: 276bd730e5f440841aa3893b2fbdd1b0, type: 3}
+        m_Texture: {fileID: 2800000, guid: d5237f989ce98eb4887ad21ed201dbff, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
