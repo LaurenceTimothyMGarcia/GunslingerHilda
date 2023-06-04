@@ -63,6 +63,8 @@ public class MapGenerator : MonoBehaviour
         MapDisplay display = FindObjectOfType<MapDisplay>();
 
         display.DrawMesh(MeshGenerator.GenerateTerrainMesh(mapData.heightMap, terrainData.meshHeightMultipler, terrainData.meshHeightCurve, editorLOD));
+
+        display.DrawTexture(TextureGenerator.TextureFromHeightMap(mapData.heightMap));
     }
 
     public void DrawMapInEditor()

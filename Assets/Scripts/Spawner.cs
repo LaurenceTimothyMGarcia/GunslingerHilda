@@ -7,6 +7,9 @@ public class Spawner : MonoBehaviour
     public MapGenerator mapGen;
     public MeshFilter meshVert;
     public GameObject player;
+    public GameObject testSpawn;
+
+    public int amountTestObj;
 
     private float[,] heightMap;
     private Vector3[] points;
@@ -25,15 +28,26 @@ public class Spawner : MonoBehaviour
 
         // Gets list of valid points
         validPoints = ValidLocations(points, spawnGroundLevel);
+        Debug.Log("NOISE MAP SIZE: " + (heightMap.GetLength(0) * heightMap.GetLength(1)));
         Debug.Log("POINTS ARRAY SIZE: " + points.Length);
         Debug.Log("VALID POINTS SIZE: " + validPoints.Count);
 
         // Sets player location
         SpawnEntity(player, points);
+
+        // Debugging to check where the spawn points are
+        // for (int i = 0; i < amountTestObj; i++)
+        // {
+        //     SpawnEntity(testSpawn, points);
+        // }
     }
 
     private void SpawnEntity(GameObject entity, Vector3[] points)
     {
+
+        // int randomPoint = Random.Range(0, points.Length);
+
+        // Vector3 selectedPoint = points[randomPoint];
 
         int randomPoint = Random.Range(0, validPoints.Count);
 
@@ -66,7 +80,7 @@ public class Spawner : MonoBehaviour
             {
                 if (heightMap[i, j] < groundLevel)
                 {
-                    validPoints.Add(points[heightMap.GetLength(0) * i + j]);
+                    validPoints.Add(points[(heightMap.GetLength(0) * i) + j]);
                 }
             }
         }
