@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
 
     private float[,] heightMap;
     private Vector3[] points;
+    private List<Vector3> validPoints;
 
     [Range(0,1)]
     public float spawnGroundLevel;
@@ -22,15 +23,17 @@ public class Spawner : MonoBehaviour
         // Gets directly from mesh object
         points = meshVert.mesh.vertices;
 
-        SpawnEntity(player, spawnGroundLevel, points);
-    }
-
-    private void SpawnEntity(GameObject entity, float groundLevel, Vector3[] points)
-    {
-        List<Vector3> validPoints = ValidLocations(points, groundLevel);
-
+        // Gets list of valid points
+        validPoints = ValidLocations(points, spawnGroundLevel);
         Debug.Log("POINTS ARRAY SIZE: " + points.Length);
         Debug.Log("VALID POINTS SIZE: " + validPoints.Count);
+
+        // Sets player location
+        SpawnEntity(player, points);
+    }
+
+    private void SpawnEntity(GameObject entity, Vector3[] points)
+    {
 
         int randomPoint = Random.Range(0, validPoints.Count);
 
