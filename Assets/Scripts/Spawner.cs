@@ -74,13 +74,17 @@ public class Spawner : MonoBehaviour
     {
         List<Vector3> validPoints = new List<Vector3>();
 
-        for (int i = 0; i < heightMap.GetLength(0); i++)
+        int row = heightMap.GetLength(0);
+        int col = heightMap.GetLength(1);
+
+        for (int i = 0; i < row; i++)
         {
-            for (int j = 0; j < heightMap.GetLength(1); j++)
+            for (int j = 0; j < col; j++)
             {
                 if (heightMap[i, j] < groundLevel)
                 {
-                    validPoints.Add(points[(heightMap.GetLength(0) * i) + j]);
+                    validPoints.Add(points[(row * i) + j]);
+                    // validPoints.Add(points[(col * j) + i]);
                 }
             }
         }
