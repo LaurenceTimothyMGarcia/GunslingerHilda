@@ -77,17 +77,28 @@ public class Spawner : MonoBehaviour
         int row = heightMap.GetLength(0);
         int col = heightMap.GetLength(1);
 
-        for (int i = 0; i < row; i++)
+        for (int i = 0; i < points.Length; i++)
         {
-            for (int j = 0; j < col; j++)
+            float canyonRatio = points[i].y / mapGen.terrainData.meshHeightMultipler;
+
+            if (canyonRatio < groundLevel)
             {
-                if (heightMap[i, j] < groundLevel)
-                {
-                    validPoints.Add(points[(row * i) + j]);
-                    // validPoints.Add(points[(col * j) + i]);
-                }
+                validPoints.Add(points[i]);
             }
         }
+
+        // Old ALGO didnt work
+        // for (int i = 0; i < row; i++)
+        // {
+        //     for (int j = 0; j < col; j++)
+        //     {
+        //         if (heightMap[i, j] < groundLevel)
+        //         {
+        //             validPoints.Add(points[(row * i) + j]);
+        //             // validPoints.Add(points[(col * j) + i]);
+        //         }
+        //     }
+        // }
 
         return validPoints;
     }
