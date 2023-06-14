@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
     public GameObject testSpawn;
 
     public int amountTestObj;
+    public bool runTestSpawn;
 
     private float[,] heightMap;
     private Vector3[] points;
@@ -36,10 +37,13 @@ public class Spawner : MonoBehaviour
         SpawnEntity(player, points);
 
         // Debugging to check where the spawn points are
-        // for (int i = 0; i < amountTestObj; i++)
-        // {
-        //     SpawnEntity(testSpawn, points);
-        // }
+        if (runTestSpawn)
+        {
+            for (int i = 0; i < amountTestObj; i++)
+            {
+                SpawnEntity(testSpawn, points);
+            }
+        }
     }
 
     private void SpawnEntity(GameObject entity, Vector3[] points)
