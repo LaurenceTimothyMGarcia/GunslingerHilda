@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CanyonTerrain
   m_EditorClassIdentifier: 
   autoUpdate: 1
-  uniformScale: 3
+  uniformScale: 1
   useFalloff: 1
   falloffCurve: 5.63
   falloffShift: 23.73
