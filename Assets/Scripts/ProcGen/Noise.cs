@@ -17,7 +17,12 @@ public static class Noise
         Global
     }
 
-    public static float[,] GenerateNoiseMap(int mapWidth, int mapHeight, int seed, float scale, int octaves, float persistance, float lacunarity, Vector2 offset, NormalizeMode normalizeMode)
+    public static float[,] GenerateNoiseMap(int mapWidth, int mapHeight, 
+                                            int seed, float scale, 
+                                            int octaves, float persistance, 
+                                            float lacunarity, 
+                                            Vector2 offset, 
+                                            NormalizeMode normalizeMode)
     {
         float[,] noiseMap = new float[mapWidth, mapHeight];
 
@@ -61,6 +66,7 @@ public static class Noise
                 // Instead of direction setting perlin value, we increase noise by perlin val of each octive
                 float noiseHeight = 0;
 
+                // This is where the perlin noise is
                 for (int i = 0; i < octaves; i++)
                 {
                     float sampleX = (x - halfWidth + octaveOffsets[i].x) / scale * frequency;
