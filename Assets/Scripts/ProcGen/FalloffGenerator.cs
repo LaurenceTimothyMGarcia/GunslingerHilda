@@ -4,6 +4,10 @@ using UnityEngine;
 
 public static class FalloffGenerator
 {
+    /***
+        Adjusts the noise matrix to have a fall off at the edge
+    */
+
     public static float[,] GenerateFalloffMap(int size, float falloffCurve, float falloffShift)
     {
         float[,] map = new float[size,size];

@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/***
+    Current implemnetation of the game, this isnt needed
+*/
+
 public class EndlessTerrain : MonoBehaviour
 {
 

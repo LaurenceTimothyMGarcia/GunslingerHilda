@@ -2,10 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/***
+    Generates texture of the noise map
+*/
+
 public static class TextureGenerator
 {
     public static Texture2D TextureFromColorMap(Color[] colorMap, int width, int height)
     {
+        /***
+            Sets colors based on height from noise
+        */
+
         Texture2D texture = new Texture2D(width, height);
         texture.filterMode = FilterMode.Point;  // Lets it be more defined
         texture.wrapMode = TextureWrapMode.Clamp;
@@ -16,6 +25,10 @@ public static class TextureGenerator
 
     public static Texture2D TextureFromHeightMap(float[,] noiseMap)
     {
+        /***
+            Sets black and white visualization based on noise map
+        */
+
         int width = noiseMap.GetLength(0);
         int height = noiseMap.GetLength(1);
 
