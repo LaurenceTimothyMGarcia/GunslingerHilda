@@ -9,6 +9,11 @@ using UnityEngine.InputSystem;
 
 namespace PlayerInput
 {
+
+    /***
+    *   PlayerInput namespace deals with any script related to player actions
+    */
+
     public class PlayerController : MonoBehaviour
     {
 
