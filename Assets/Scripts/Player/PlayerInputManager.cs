@@ -28,6 +28,7 @@ namespace PlayerInput
         private InputAction jumpAction;
         private InputAction fireAction;
         private InputAction aimAction;
+        private InputAction reloadAction;
 
         //Basic Movement
         private Vector2 movement;
@@ -54,6 +55,9 @@ namespace PlayerInput
         private bool aim;
         [SerializeField] private bool aimHold;
 
+        // Reload
+        private bool reload;
+
         //Singleton for only one Input Manager
         private void Awake()
         {
@@ -77,6 +81,7 @@ namespace PlayerInput
             jumpAction = input.Player.Jump;
             fireAction = input.Player.Fire;
             aimAction = input.Player.Aim;
+            reloadAction = input.Player.Reload;
 
             //Sets player input values with listeners
 
@@ -155,6 +160,10 @@ namespace PlayerInput
             {
                 aimAction.canceled += setAim;
             }
+
+            //JUMPS
+            reloadAction.performed += setReload;
+            reloadAction.canceled += setReload;
         }
 
         //MOVEMENT SETTER AND GETTER
@@ -318,6 +327,25 @@ namespace PlayerInput
         public bool aimPressed()
         {
             return aim;
+        }
+
+        //Reload SETTER AND GETTER
+        public void setReload(InputAction.CallbackContext ctx)
+        {
+            //Sets Reload based on current state of Reload
+            if (reload)
+            {
+                reload = false;
+            }
+            else
+            {
+                reload = true;
+            }
+        }
+        //Get reload
+        public bool reloadPressed()
+        {
+            return reload;
         }
 
 
