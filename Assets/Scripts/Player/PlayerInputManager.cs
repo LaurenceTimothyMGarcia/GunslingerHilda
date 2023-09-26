@@ -143,6 +143,7 @@ namespace PlayerInput
 
             //Fire Button
             fireAction.performed += setFire;
+            fireAction.canceled += setFire;
             //Set a toggle bool for fire
             //True - Hold Down to fire
             //False - Toggle to fire
