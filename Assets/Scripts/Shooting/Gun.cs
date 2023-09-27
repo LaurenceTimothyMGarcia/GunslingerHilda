@@ -92,7 +92,7 @@ namespace PlayerInput
 
             // Check if ray hits something
             Vector3 targetPoint;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit) && hit.transform.tag != "Player")
             {
                 targetPoint = hit.point;
             }
