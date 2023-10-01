@@ -18,4 +18,6 @@ public class BulletPowerProps : ScriptableObject
     public bool slowBullets;
 
     public bool knockbackBullets;
+
+    public bool explosiveBullets;
 }
