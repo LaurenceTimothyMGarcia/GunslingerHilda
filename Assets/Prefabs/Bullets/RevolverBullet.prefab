@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6219607239259508737}
   - component: {fileID: 2774887502559992875}
   - component: {fileID: 2024649630973155654}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RevolverBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 9065750106343199862}
   - component: {fileID: 6716657176140175102}
   - component: {fileID: 8672112575616932713}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 8849050039905800150}
   - component: {fileID: 3377763338088040244}
   - component: {fileID: 1582892065734177253}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}

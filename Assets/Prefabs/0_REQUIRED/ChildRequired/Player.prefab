@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2759914843192976326}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CombatLookAt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4633280686768221680}
   - component: {fileID: 4633280686768221681}
   - component: {fileID: 4633280686768221686}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 4633280687796824869}
   - component: {fileID: 4633280687796824890}
   - component: {fileID: 5034345232391400613}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4633280688058326120}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4633280688078813485}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 2811443723401927576}
   - component: {fileID: 8674826741589225143}
   - component: {fileID: 5869351444288430823}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4366037521674387868}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,10 +513,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4633280686768221687}
     m_Modifications:
+    - target: {fileID: 472005570993281099, guid: 53583af0dd45e99479c613ecd3fbedd3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 542530547667544376, guid: 53583af0dd45e99479c613ecd3fbedd3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2048959003333168747, guid: 53583af0dd45e99479c613ecd3fbedd3,
         type: 3}
       propertyPath: m_Name
       value: TestGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 2048959003333168747, guid: 53583af0dd45e99479c613ecd3fbedd3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2623193163465905913, guid: 53583af0dd45e99479c613ecd3fbedd3,
         type: 3}

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2418355635214531698}
   - component: {fileID: 6828527668827998978}
   - component: {fileID: 861774045178559181}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShotgunShell
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 6130080111996090589}
   - component: {fileID: 2420433094570388112}
   - component: {fileID: 1367003045797109973}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 8363232292977173928}
   - component: {fileID: 4632314579687802073}
   - component: {fileID: 5159236675248136341}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
