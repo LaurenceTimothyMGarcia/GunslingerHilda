@@ -13,6 +13,15 @@ public class Bullet : MonoBehaviour
         Destroy(this.gameObject, bulletLifetime);
     }
 
+    void Update()
+    {
+        //Moved homing bullets to Update() as they need to detect the nearest enemy.
+        if (activePowers.homingBullets)
+        {
+            
+        }
+    }
+
     public void OnCollisionEnter(Collision col)
     {
 
@@ -22,10 +31,10 @@ public class Bullet : MonoBehaviour
             FireBullets();
         }
 
-        if (activePowers.homingBullets)
-        {
-            HomingBullets();
-        }
+        //if (activePowers.homingBullets)
+        //{
+        //    HomingBullets();
+        //}
 
         if (activePowers.piercingShots)
         {
