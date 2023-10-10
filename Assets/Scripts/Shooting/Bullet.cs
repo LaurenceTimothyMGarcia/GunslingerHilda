@@ -7,19 +7,18 @@ public class Bullet : MonoBehaviour
     public BulletPowerProps activePowers;
 
     public float bulletLifetime = 5f;
+    
+    public string testVariable;
 
     private void Start()
     {
-        Destroy(this.gameObject, bulletLifetime);
-    }
-
-    void Update()
-    {
-        //Moved homing bullets to Update() as they need to detect the nearest enemy.
+        //Moved homing bullets to Start() as they need to detect the nearest enemy.
         if (activePowers.homingBullets)
         {
-            
+            Collider nearestEnemy = Physics.OverlapSphere(transform.position, 20f, LayerMask.NameToLayer("Enemy"))[0];
+            Debug.Log(nearestEnemy.gameObject.name);
         }
+        Destroy(this.gameObject, bulletLifetime);
     }
 
     public void OnCollisionEnter(Collision col)

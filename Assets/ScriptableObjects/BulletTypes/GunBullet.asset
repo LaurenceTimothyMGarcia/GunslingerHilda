@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bcbd014ac397394fa0a88a90a028409, type: 3}
-  m_Name: HomingBullet
+  m_Name: GunBullet
   m_EditorClassIdentifier: 
   bulletModel: {fileID: 0}
   fireBullets: 0
-  homingBullets: 0
+  homingBullets: 1
   piercingShots: 0
   stunBullets: 0
   slowBullets: 0
