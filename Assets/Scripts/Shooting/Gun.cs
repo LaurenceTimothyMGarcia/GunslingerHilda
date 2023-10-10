@@ -154,6 +154,13 @@ namespace PlayerInput
             bulletsLeft = magazineSize;
             state = GunState.readyToShoot;
         }
-    }
 
+
+        //Test enemy detection range for homing bullets
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, 10f);
+        }
+    }
 }

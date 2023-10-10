@@ -10,14 +10,21 @@ public class Bullet : MonoBehaviour
     
     public string testVariable;
 
-    private void Start()
+    public GameObject testEnemy;
+
+    private void Awake()
     {
-        //Moved homing bullets to Start() as they need to detect the nearest enemy.
+        //Moved homing bullets to Awake() as they need to detect the nearest enemy.
         if (activePowers.homingBullets)
         {
-            Collider nearestEnemy = Physics.OverlapSphere(transform.position, 20f, LayerMask.NameToLayer("Enemy"))[0];
-            Debug.Log(nearestEnemy.gameObject.name);
+            Debug.Log(LayerMask.NameToLayer("Enemy"));
+            Collider[] detectedEnemies = Physics.OverlapSphere(transform.position, 10f, LayerMask.NameToLayer("Enemy"));
+            Debug.Log(detectedEnemies[0]);
         }
+    }
+
+    private void Start()
+    {
         Destroy(this.gameObject, bulletLifetime);
     }
 

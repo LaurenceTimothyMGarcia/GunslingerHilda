@@ -148,3 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activePowers: {fileID: 11400000, guid: 8ea3904421a33b041ab9b10803fcda98, type: 2}
   bulletLifetime: 5
+  testVariable: 
+  testEnemy: {fileID: 6623820969420229354, guid: 57a3dd227baa2a6479a69f9f62e3c96c,
+    type: 3}
