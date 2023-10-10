@@ -151,3 +151,6 @@ MonoBehaviour:
   testVariable: 
   testEnemy: {fileID: 6623820969420229354, guid: 57a3dd227baa2a6479a69f9f62e3c96c,
     type: 3}
+  layer:
+    serializedVersion: 2
+    m_Bits: 512

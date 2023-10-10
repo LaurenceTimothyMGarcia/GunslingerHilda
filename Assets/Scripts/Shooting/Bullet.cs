@@ -12,13 +12,17 @@ public class Bullet : MonoBehaviour
 
     public GameObject testEnemy;
 
+    // Temporary fix
+    public LayerMask layer;
+
     private void Awake()
     {
         //Moved homing bullets to Awake() as they need to detect the nearest enemy.
         if (activePowers.homingBullets)
         {
             Debug.Log(LayerMask.NameToLayer("Enemy"));
-            Collider[] detectedEnemies = Physics.OverlapSphere(transform.position, 10f, LayerMask.NameToLayer("Enemy"));
+            Collider[] detectedEnemies = Physics.OverlapSphere(transform.position, 10f, layer);
+            // Collider[] detectedEnemies = Physics.OverlapSphere(transform.position, 10f, LayerMask.NameToLayer("Enemy"));
             Debug.Log(detectedEnemies[0]);
         }
     }
