@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: c7c32e2edb4199348a1a114256b78ce7
+guid: ecc1da4307edd4941a369acb72c97b26
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MaskDark
-    second: {fileID: 2100000, guid: c5f60e06483f7734fa9f8e46322b722d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Outline
-    second: {fileID: 2100000, guid: c5f60e06483f7734fa9f8e46322b722d, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
