@@ -112,12 +112,14 @@ namespace PlayerInput
 
             // Instanciate the bullet
             GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+
             currentBullet.transform.forward = directionSpread.normalized;
 
             // Add force to bullet
             currentBullet.GetComponent<Rigidbody>().AddForce(directionSpread.normalized * shootForce, ForceMode.Impulse);
             // Upward force Only necessary if bombs or grenades
             // currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * upwardForce, ForceMode.Impulse);
+
 
             bulletsLeft--;
             bulletsShot++;

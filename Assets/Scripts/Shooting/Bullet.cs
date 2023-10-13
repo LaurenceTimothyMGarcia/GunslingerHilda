@@ -20,10 +20,9 @@ public class Bullet : MonoBehaviour
         //Moved homing bullets to Awake() as they need to detect the nearest enemy.
         if (activePowers.homingBullets)
         {
-            Debug.Log(LayerMask.NameToLayer("Enemy"));
             Collider[] detectedEnemies = Physics.OverlapSphere(transform.position, 10f, layer);
-            // Collider[] detectedEnemies = Physics.OverlapSphere(transform.position, 10f, LayerMask.NameToLayer("Enemy"));
-            Debug.Log(detectedEnemies[0]);
+            transform.forward = (detectedEnemies[0].transform.position - transform.position).normalized;
+            gameObject.GetComponent<Rigidbody>().AddForce((detectedEnemies[0].transform.position - transform.position).normalized * GameObject.FindWithTag("Gun").GetComponent<PlayerInput.Gun>().shootForce, ForceMode.Impulse);
         }
     }
 
