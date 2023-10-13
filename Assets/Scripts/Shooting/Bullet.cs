@@ -20,9 +20,7 @@ public class Bullet : MonoBehaviour
         //Moved homing bullets to Awake() as they need to detect the nearest enemy.
         if (activePowers.homingBullets)
         {
-            Collider[] detectedEnemies = Physics.OverlapSphere(transform.position, 10f, layer);
-            transform.forward = (detectedEnemies[0].transform.position - transform.position).normalized;
-            gameObject.GetComponent<Rigidbody>().AddForce((detectedEnemies[0].transform.position - transform.position).normalized * GameObject.FindWithTag("Gun").GetComponent<PlayerInput.Gun>().shootForce, ForceMode.Impulse);
+            HomingBullets();
         }
     }
 
@@ -90,7 +88,41 @@ public class Bullet : MonoBehaviour
 
     public void HomingBullets()
     {
-        // Insert code here
+            // Insert code here
+            Collider[] detectedEnemies = Physics.OverlapSphere(transform.position, 20f, layer);
+
+            if (detectedEnemies.Length > 0)
+            {
+                Transform attackPoint = GameObject.FindWithTag("Gun").GetComponent<PlayerInput.Gun>().attackPoint;
+
+                Camera cam = GameObject.FindWithTag("Gun").GetComponent<PlayerInput.Gun>().cam;
+                Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+                RaycastHit hit;
+
+                // Check if ray hits something
+                Vector3 targetPoint;
+                if (Physics.Raycast(ray, out hit) && hit.transform.tag != "Player")
+                {
+                    targetPoint = hit.point;
+                }
+                else 
+                {
+                    targetPoint = ray.GetPoint(75); // random point far away from the player
+                }
+                
+                Vector3 directionNoSpread = targetPoint - attackPoint.position;
+
+                // Calc Spread
+                float spread = GameObject.FindWithTag("Gun").GetComponent<PlayerInput.Gun>().spread;
+                float x = Random.Range(-spread, spread);
+                float y = Random.Range(-spread, spread);
+
+                Vector3 directionSpread = directionNoSpread + new Vector3(x, y, 0);
+                gameObject.GetComponent<Rigidbody>().AddForce(-directionSpread.normalized * GameObject.FindWithTag("Gun").GetComponent<PlayerInput.Gun>().shootForce, ForceMode.Impulse);
+
+                transform.forward = (detectedEnemies[0].transform.position - transform.position).normalized;
+                gameObject.GetComponent<Rigidbody>().AddForce((detectedEnemies[0].transform.position - transform.position).normalized * GameObject.FindWithTag("Gun").GetComponent<PlayerInput.Gun>().shootForce, ForceMode.Impulse);
+            }        
         Debug.Log("Homing");
     }
 
