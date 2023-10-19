@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public BulletPowerProps activePowers;
-
     public float bulletLifetime = 5f;
     
     public string testVariable;
