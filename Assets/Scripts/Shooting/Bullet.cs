@@ -11,6 +11,15 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         Destroy(this.gameObject, bulletLifetime);
+
+        /*
+        // If Bullets are Piercing, turn to a trigger
+        if (PiercingShots())
+        {
+            gameObject.GetComponent<Collider>().isTrigger = true;
+        }
+        */ 
+
     }
 
     public void OnCollisionEnter(Collision col)
@@ -58,9 +67,18 @@ public class Bullet : MonoBehaviour
             if (col.gameObject.CompareTag("Enemy"))
             {
                 // Deal Damage to enemy
+                Destroy(gameObject); 
             }
 
-            Destroy(this.gameObject);
+        }
+      
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            print(other.gameObject.name);
         }
     }
 
@@ -76,10 +94,11 @@ public class Bullet : MonoBehaviour
         Debug.Log("Homing");
     }
 
-    public void PiercingShots()
+    public bool PiercingShots()
     {
         // Insert code here
         Debug.Log("Pierce");
+        return true;
     }
 
     public void StunBullets()

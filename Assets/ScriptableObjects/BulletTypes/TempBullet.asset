@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: TempBullet
   m_EditorClassIdentifier: 
   bulletModel: {fileID: 0}
-  fireBullets: 1
-  homingBullets: 1
-  piercingShots: 1
-  stunBullets: 1
-  slowBullets: 1
+  fireBullets: 0
+  homingBullets: 0
+  piercingShots: 0
+  stunBullets: 0
+  slowBullets: 0
   knockbackBullets: 1
-  explosiveBullets: 1
+  explosiveBullets: 0

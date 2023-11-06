@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activePowers: {fileID: 11400000, guid: 8ea3904421a33b041ab9b10803fcda98, type: 2}
+  bulletLifetime: 5
