@@ -18,5 +18,5 @@ MonoBehaviour:
   piercingShots: 0
   stunBullets: 0
   slowBullets: 0
-  knockbackBullets: 0
+  knockbackBullets: 1
   explosiveBullets: 0
