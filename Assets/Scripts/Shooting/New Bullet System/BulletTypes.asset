@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bcbd014ac397394fa0a88a90a028409, type: 3}
-  m_Name: TempBullet
+  m_Script: {fileID: 11500000, guid: c1d699eadc049c8439045aa8605a4622, type: 3}
+  m_Name: BulletTypes
   m_EditorClassIdentifier: 
-  bulletModel: {fileID: 0}
-  fireBullets: 1
-  homingBullets: 1
-  piercingShots: 1
-  stunBullets: 1
-  slowBullets: 1
-  knockbackBullets: 1
-  explosiveBullets: 1
+  homingBullet: {fileID: 0}

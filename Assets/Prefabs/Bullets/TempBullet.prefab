@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 288906577513793217}
   - component: {fileID: 8506123214348942786}
   - component: {fileID: 7590183281235308895}
-  - component: {fileID: 3709960030870632548}
+  - component: {fileID: -3404658765489239497}
   m_Layer: 8
   m_Name: TempBullet
   m_TagString: Bullet
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &3709960030870632548
+--- !u!114 &-3404658765489239497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6113523913597967588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 855badfaa7e339c4c815cf0430f568dd, type: 3}
+  m_Script: {fileID: 11500000, guid: aba746a20874cc74eaad4c24c36dbee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activePowers: {fileID: 11400000, guid: 8ea3904421a33b041ab9b10803fcda98, type: 2}
+  bulletLifeTime: 5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  gun: {fileID: 0}
