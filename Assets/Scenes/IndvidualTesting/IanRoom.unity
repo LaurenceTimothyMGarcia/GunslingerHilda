@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -242,9 +242,9 @@ GameObject:
   - component: {fileID: 138881446}
   - component: {fileID: 138881451}
   - component: {fileID: 138881454}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -371,6 +371,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 1323162092}
+  SkeleDead: {fileID: 0}
+  isDead: 0
 --- !u!1 &486342598
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 745019417}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SkeleStates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1323162091}
   - component: {fileID: 1323162092}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SkeleIdle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1187,7 +1189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1755951324}
   - component: {fileID: 1755951325}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SkeleChase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1235,7 +1237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876214107}
   - component: {fileID: 1876214108}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SkeleAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1269,6 +1271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7957dabddbc924d82db6ca5bbc7be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationIsDone: 0
+  skeleChase: {fileID: 1755951325}
+  HitDetector: {fileID: 0}
 --- !u!1 &1967535914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,12 +1930,12 @@ PrefabInstance:
     - target: {fileID: 2733120830572520249, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000021483135
+      value: 0.0000000021483135
       objectReference: {fileID: 0}
     - target: {fileID: 2733120830572520249, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1.0334089e-10
+      value: -1.0334089e-10
       objectReference: {fileID: 0}
     - target: {fileID: 2733120830790550172, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}
