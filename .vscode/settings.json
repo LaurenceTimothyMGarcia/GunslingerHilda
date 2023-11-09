@@ -52,5 +52,6 @@
         "temp/":true,
         "Temp/":true
     },
-    "workbench.experimental.share.enabled": true
+    "workbench.experimental.share.enabled": true,
+    "dotnet.preferCSharpExtension": true
 }

@@ -9,9 +9,6 @@ namespace PlayerInput
         // Bullet
         public GameObject bullet;
 
-        //Bullet power props - TESTING NEW BULLET SYSTEM
-        public BulletTypes bulletTypes;
-
         // Bulet force
         public float shootForce;
         public float upwardForce;
