@@ -5,18 +5,22 @@ using UnityEngine;
 public abstract class Bullet : MonoBehaviour
 {
     //General bullet properties
-    public float bulletLifetime = 3f; //default lifetime
-    public int enemyLayer; //enemy layer
-    public Vector3 defaultDirection { get; set; }
-    public float defaultForce { get; set; }
+    public float bulletLifetime;
+    public int enemyLayer;
+
+    //Default props passed by the gun object on instantiontion - look inside Shoot()
+    public Vector3 defaultDirection;
+    public float defaultForce;
 
     // Start is called before the first frame update
-    public virtual void Start()
+    public void Start()
     {
         enemyLayer = LayerMask.NameToLayer("Enemy"); // Set enemy layer
+        SetBehavior();
         Destroy(this.gameObject, bulletLifetime); //Destroy bullet after lifetime
     }
-
-    public abstract void SetBehavior();
-    public abstract void OnHit();
+    
+    //Must override
+    public abstract void SetBehavior(); //Sets bullet behavior on instantiation
+    public abstract void OnCollisionEnter(Collision col); //Set bullet behavior on collision
 }

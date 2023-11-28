@@ -56,6 +56,8 @@ namespace PlayerInput
             bulletsLeft = magazineSize;
 
             state = GunState.readyToShoot;  
+
+            cam = Camera.main;
         }
 
         // Update is called once per frame
@@ -89,24 +91,24 @@ namespace PlayerInput
         {
             state = GunState.shooting;
 
-            // // Find position to hit with a raycast
-            // // Raycast to the middle of the screen
-            // Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-            // RaycastHit hit;
-            // // Check if ray hits something
-            // Vector3 targetPoint;
-            // if (Physics.Raycast(ray, out hit) && hit.transform.tag != "Player")
-            // {
-            //     targetPoint = hit.point;
-            // }
+            // Find position to hit with a raycast
+            // Raycast to the middle of the screen
+            Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            RaycastHit hit;
 
-            // else
-            // {
-            //     targetPoint = ray.GetPoint(75); // random point far away from the player
-            // }
+            // Check if ray hits something
+            Vector3 targetPoint;
+            if (Physics.Raycast(ray, out hit) && hit.transform.tag != "Player")
+            {
+                targetPoint = hit.point;
+            }
+            else
+            {
+                targetPoint = ray.GetPoint(75); // random point far away from the player
+            }
 
             // calculate direction
-            Vector3 directionNoSpread = Camera.main.transform.forward;
+            Vector3 directionNoSpread = targetPoint - attackPoint.position;
 
             // Calc Spread
             float x = Random.Range(-spread, spread);
@@ -118,14 +120,11 @@ namespace PlayerInput
 
             // Instanciate the bullet
             GameObject currentBullet = Instantiate(currentBulletType, attackPoint.position, Quaternion.identity);
+
             //Pass default bullet props
             currentBullet.GetComponent<Bullet>().defaultForce = shootForce;
-            currentBullet.GetComponent<Bullet>().defaultDirection = directionSpread;
+            currentBullet.GetComponent<Bullet>().defaultDirection = directionNoSpread;
 
-            currentBullet.transform.forward = directionSpread.normalized;
-
-            // Add force to bullet
-            currentBullet.GetComponent<Rigidbody>().AddForce(directionSpread.normalized * shootForce, ForceMode.Impulse);
             // Upward force Only necessary if bombs or grenades
             // currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * upwardForce, ForceMode.Impulse);
 

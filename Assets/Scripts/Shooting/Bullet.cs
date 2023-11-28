@@ -1,107 +1,107 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
+// // using System.Collections;
+// // using System.Collections.Generic;
+// // using UnityEngine;
 
-// public class Bullet : MonoBehaviour
-// {
-//     public BulletPowerProps activePowers;
-//     public float bulletLifetime = 5f;
+// // public class Bullet : MonoBehaviour
+// // {
+// //     public BulletPowerProps activePowers;
+// //     public float bulletLifetime = 5f;
     
-//     public string testVariable;
+// //     public string testVariable;
 
-//     public GameObject testEnemy;
+// //     public GameObject testEnemy;
 
-//     // Temporary fix
-//     public LayerMask layer;
+// //     // Temporary fix
+// //     public LayerMask layer;
 
-//     private void Awake()
-//     {
-//         //Moved homing bullets to Awake() as they need to detect the nearest enemy.
-//         if (activePowers.homingBullets)
-//         {
-//             HomingBullets();
-//         }
-//     }
+// //     private void Awake()
+// //     {
+// //         //Moved homing bullets to Awake() as they need to detect the nearest enemy.
+// //         if (activePowers.homingBullets)
+// //         {
+// //             HomingBullets();
+// //         }
+// //     }
 
-//     private void Start()
-//     {
-//         Destroy(this.gameObject, bulletLifetime);
+// //     private void Start()
+// //     {
+// //         Destroy(this.gameObject, bulletLifetime);
 
-//         /*
-//         // If Bullets are Piercing, turn to a trigger
-//         if (PiercingShots())
-//         {
-//             gameObject.GetComponent<Collider>().isTrigger = true;
-//         }
-//         */ 
+// //         /*
+// //         // If Bullets are Piercing, turn to a trigger
+// //         if (PiercingShots())
+// //         {
+// //             gameObject.GetComponent<Collider>().isTrigger = true;
+// //         }
+// //         */ 
 
-//     }
+// //     }
 
-//     public void OnCollisionEnter(Collision col)
-//     {
+// //     public void OnCollisionEnter(Collision col)
+// //     {
 
-//         // Insert different scripts here
-//         if (activePowers.fireBullets)
-//         {
-//             FireBullets();
-//         }
+// //         // Insert different scripts here
+// //         if (activePowers.fireBullets)
+// //         {
+// //             FireBullets();
+// //         }
 
-//         //if (activePowers.homingBullets)
-//         //{
-//         //    HomingBullets();
-//         //}
+// //         //if (activePowers.homingBullets)
+// //         //{
+// //         //    HomingBullets();
+// //         //}
 
-//         if (activePowers.piercingShots)
-//         {
-//             PiercingShots();
-//         }
+// //         if (activePowers.piercingShots)
+// //         {
+// //             PiercingShots();
+// //         }
 
-//         if (activePowers.stunBullets)
-//         {
-//             StunBullets();
-//         }
+// //         if (activePowers.stunBullets)
+// //         {
+// //             StunBullets();
+// //         }
 
-//         if (activePowers.slowBullets)
-//         {
-//             SlowBullets();
-//         }
+// //         if (activePowers.slowBullets)
+// //         {
+// //             SlowBullets();
+// //         }
 
-//         if (activePowers.knockbackBullets)
-//         {
-//             KnockbackBullets();
-//         }
+// //         if (activePowers.knockbackBullets)
+// //         {
+// //             KnockbackBullets();
+// //         }
 
-//         if (activePowers.explosiveBullets)
-//         {
-//             ExplosiveBullets();
-//         }
+// //         if (activePowers.explosiveBullets)
+// //         {
+// //             ExplosiveBullets();
+// //         }
 
-//         // On Collide
-//         if (!col.gameObject.CompareTag("Player"))
-//         {
-//             if (col.gameObject.CompareTag("Enemy"))
-//             {
-//                 // Deal Damage to enemy
-//                 Destroy(gameObject); 
-//             }
+// //         // On Collide
+// //         if (!col.gameObject.CompareTag("Player"))
+// //         {
+// //             if (col.gameObject.CompareTag("Enemy"))
+// //             {
+// //                 // Deal Damage to enemy
+// //                 Destroy(gameObject); 
+// //             }
 
-//         }
+// //         }
       
-//     }
+// //     }
 
-//     public void OnTriggerEnter(Collider other)
-//     {
-//         if(other.gameObject.CompareTag("Enemy"))
-//         {
-//             print(other.gameObject.name);
-//         }
-//     }
+// //     public void OnTriggerEnter(Collider other)
+// //     {
+// //         if(other.gameObject.CompareTag("Enemy"))
+// //         {
+// //             print(other.gameObject.name);
+// //         }
+// //     }
 
-//     public void FireBullets()
-//     {
-//         // Insert code here
-//         Debug.Log("Fire Bullet");
-//     }
+// //     public void FireBullets()
+// //     {
+// //         // Insert code here
+// //         Debug.Log("Fire Bullet");
+// //     }
 
 //     public void HomingBullets()
 //     {
@@ -143,34 +143,34 @@
 //         Debug.Log("Homing");
 //     }
 
-//     public bool PiercingShots()
-//     {
-//         // Insert code here
-//         Debug.Log("Pierce");
-//         return true;
-//     }
+// //     public bool PiercingShots()
+// //     {
+// //         // Insert code here
+// //         Debug.Log("Pierce");
+// //         return true;
+// //     }
 
-//     public void StunBullets()
-//     {
-//         // Insert code here
-//         Debug.Log("Stun");
-//     }
+// //     public void StunBullets()
+// //     {
+// //         // Insert code here
+// //         Debug.Log("Stun");
+// //     }
 
-//     public void SlowBullets()
-//     {
-//         // Insert code here
-//         Debug.Log("Slow");
-//     }
+// //     public void SlowBullets()
+// //     {
+// //         // Insert code here
+// //         Debug.Log("Slow");
+// //     }
 
-//     public void KnockbackBullets()
-//     {
-//         // Insert code here
-//         Debug.Log("Knockback");
-//     }
+// //     public void KnockbackBullets()
+// //     {
+// //         // Insert code here
+// //         Debug.Log("Knockback");
+// //     }
 
-//     public void ExplosiveBullets()
-//     {
-//         // Insert code here
-//         Debug.Log("Explosive");
-//     }
-// }
+// //     public void ExplosiveBullets()
+// //     {
+// //         // Insert code here
+// //         Debug.Log("Explosive");
+// //     }
+// // }
