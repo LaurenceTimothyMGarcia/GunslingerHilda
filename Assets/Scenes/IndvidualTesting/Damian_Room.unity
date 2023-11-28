@@ -934,7 +934,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5131172758781631853}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1861352226
+--- !u!114 &1861352227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -943,9 +943,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1861352223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 844e65c682029244ca299c301c084887, type: 3}
+  m_Script: {fileID: 11500000, guid: 69aabb8b01f88254e94f826fabab5e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootForce: 100
+  upwardForce: 10
+  timeBetweenShooting: 1
+  spread: 1
+  reloadTime: 1
+  timeBetweenShots: 1
+  magazineSize: 10
+  bulletsPerTap: 1
+  allowButtonHold: 0
+  state: 0
+  cam: {fileID: 7122557821564814621}
+  attackPoint: {fileID: 347870099}
+  allowInvoke: 1
   currentBulletType: {fileID: 2013289005811666221, guid: 5d9e17b6869b28045896c60db60e3682,
     type: 3}
   gunBullet: {fileID: 2013289005811666221, guid: 5d9e17b6869b28045896c60db60e3682,
@@ -956,32 +969,6 @@ MonoBehaviour:
     type: 3}
   piercingBullet: {fileID: 2013289005811666221, guid: 4a17bbfe08817824ea2552614a60a4ca,
     type: 3}
---- !u!114 &1861352227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1861352223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b1cca644c9fca142ad5bc3f050bbf58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletManager: {fileID: 0}
-  shootForce: 50
-  upwardForce: 50
-  timeBetweenShooting: 1
-  spread: 0.1
-  reloadTime: 2
-  timeBetweenShots: 1
-  magazineSize: 10
-  bulletsPerTap: 1
-  allowButtonHold: 0
-  state: 1
-  cam: {fileID: 7122557821564814621}
-  attackPoint: {fileID: 347870099}
-  allowInvoke: 1
 --- !u!1 &1967535914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,10 +1537,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3811927934444655410, guid: d81e522e31f2b1f49ac2be065cd7b049,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1861352226}
-    - targetCorrespondingSourceObject: {fileID: 3811927934444655410, guid: d81e522e31f2b1f49ac2be065cd7b049,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1861352227}
   m_SourcePrefab: {fileID: 100100000, guid: d81e522e31f2b1f49ac2be065cd7b049, type: 3}
 --- !u!4 &5131172758781631854 stripped
@@ -1727,12 +1710,12 @@ PrefabInstance:
     - target: {fileID: 2733120830572520249, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000021483135
+      value: 0.0000000021483135
       objectReference: {fileID: 0}
     - target: {fileID: 2733120830572520249, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1.0334089e-10
+      value: -1.0334089e-10
       objectReference: {fileID: 0}
     - target: {fileID: 2733120830790550172, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}
