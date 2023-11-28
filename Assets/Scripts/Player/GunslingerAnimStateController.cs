@@ -7,6 +7,11 @@ namespace PlayerInput
 {
     public class GunslingerAnimStateController : MonoBehaviour
     {
+        [Header("Ground Check")]
+        [SerializeField] private float playerHeight;
+        [SerializeField] private LayerMask whatIsGround;
+        private bool grounded;
+
         Animator animator;
 
         // Start is called before the first frame update
@@ -18,13 +23,21 @@ namespace PlayerInput
         // Update is called once per frame
         void Update()
         {
+            //Ground check in order to see if player is touching ground
+            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
             bool isWalking = !PlayerInputManager.Instance.getMovement().Equals(Vector2.zero);
             bool isJumping = PlayerInputManager.Instance.jumpPressed();
 
             if (isJumping)
             {
-                // animator.SetBool("isWalking", false);
-                // animator.SetBool("isJumping", true);
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isJumping", true);
+            }
+
+            if (!grounded)
+            {
+                animator.SetBool("isJumping", false);
             }
 
             if (isWalking && !isJumping)
