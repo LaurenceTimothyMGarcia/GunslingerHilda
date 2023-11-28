@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunBullet : MonoBehaviour {
+public class GunBullet : Bullet {
 
-    public void Start() {
+    public override void Start() {
         SetBehavior();
-        Destroy(this.gameObject, 5f);
+        base.Start();
     }
-    public void SetBehavior() {
-        Debug.Log("Hello from GunBullet");
+    public override void SetBehavior() {
+        
+    }
+
+    public override void OnHit() {
+        
     }
 }
