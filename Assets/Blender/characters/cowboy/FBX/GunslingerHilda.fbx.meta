@@ -26,7 +26,9 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Avatar creation failed:\n\tAmbiguous Transform 'Armature/Hip/Spine/UpperBody/Neck/Head'
+      and 'Armature/Hip/Spine/UpperBody/Neck/Head/Head' found in hierarchy for human
+      bone 'Head'. Transform name mapped to a human bone must be unique.\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -34,7 +36,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -92,7 +94,157 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: GunslingerHilda(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: GunslingerHilda(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Hip
+      parentName: Armature
+      position: {x: -5.9604643e-10, y: 0, z: -0.0061980817}
+      rotation: {x: 0.7071068, y: -0.0000000842937, z: -0.000000084293696, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine
+      parentName: Hip
+      position: {x: -0, y: 0.0041002836, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: UpperBody
+      parentName: Spine
+      position: {x: -0, y: 0.008295877, z: 0}
+      rotation: {x: 0, y: 0.00000011920927, z: -0, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Neck
+      parentName: UpperBody
+      position: {x: -0, y: 0.0088949585, z: 0}
+      rotation: {x: 0, y: -0.00000011920928, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: Neck
+      position: {x: -0, y: 0.008358742, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hat
+      parentName: Head
+      position: {x: -0, y: 0.013804364, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hat
+      parentName: Hat
+      position: {x: -0, y: -0.037256148, z: -0.0000000015646219}
+      rotation: {x: -0.7071068, y: 0.00000008429371, z: 0.00000008429374, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Head
+      parentName: Head
+      position: {x: 5.960464e-10, y: -0.02345178, z: 7.4505804e-11}
+      rotation: {x: -0.7071068, y: 0.0000000842937, z: 0.00000008429371, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Hair
+      parentName: Head
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: -1.919059e-22, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mask
+      parentName: Head
+      position: {x: 0.009844512, y: 0.0035533523, z: -0.0000000024000226}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mask
+      parentName: Mask
+      position: {x: -0.009844512, y: -0.027005138, z: 0.0000000021606683}
+      rotation: {x: -0.7071068, y: 0.0000000842937, z: 0.00000008429371, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: MaskTie
+      parentName: Mask
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: -1.919059e-22, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: UpperArm_L
+      parentName: UpperBody
+      position: {x: 1.0892345e-16, y: 0.008894961, z: 0.007664806}
+      rotation: {x: 0.941948, y: 0.000000040025526, z: 0.00000011228891, w: 0.33575886}
+      scale: {x: 1, y: 1, z: 0.9999996}
+    - name: LowerArm_L
+      parentName: UpperArm_L
+      position: {x: -1.0658141e-16, y: 0.014660811, z: -7.450582e-10}
+      rotation: {x: 0.21230051, y: 0.00000011649189, z: 0.000000075924554, w: 0.97720444}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hand_L
+      parentName: LowerArm_L
+      position: {x: -2.1316282e-16, y: 0.013404047, z: -5.960467e-10}
+      rotation: {x: 0.058486562, y: -4.577381e-14, z: 0.000000027888545, w: 0.9982882}
+      scale: {x: 1, y: 1, z: 1}
+    - name: UpperArm_R
+      parentName: UpperBody
+      position: {x: -1.1315431e-16, y: 0.008894961, z: -0.007962527}
+      rotation: {x: 0.941948, y: -0.00000004002557, z: 0.000000112288966, w: -0.33575875}
+      scale: {x: 1, y: 1, z: 0.99999976}
+    - name: LowerArm_R
+      parentName: UpperArm_R
+      position: {x: -6.0396133e-16, y: 0.01466081, z: 1.4901147e-10}
+      rotation: {x: -0.21230043, y: 0.000000116491826, z: -0.000000075924525, w: 0.97720444}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Hand_R
+      parentName: LowerArm_R
+      position: {x: -2.1316282e-16, y: 0.013404043, z: 0.000000001043081}
+      rotation: {x: -0.058486607, y: -5.286943e-14, z: -0.000000027888566, w: 0.9982882}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Gun
+      parentName: Hand_R
+      position: {x: 0.00013542613, y: 0.0051378882, z: 0.00019577792}
+      rotation: {x: -0.050123777, y: -0.048726704, z: -0.69533604, w: 0.71527696}
+      scale: {x: 0.9999998, y: 0.9999999, z: 0.9999999}
+    - name: Thigh_L
+      parentName: Hip
+      position: {x: 0.0000000011597839, y: -0.0007023954, z: 0.004864487}
+      rotation: {x: -0.00000014660384, y: 0.13445221, z: 0.9909201, w: -0.00000011448638}
+      scale: {x: 1, y: 1.0000002, z: 1.0000038}
+    - name: UpperLeg_L
+      parentName: Thigh_L
+      position: {x: 5.32907e-16, y: 0.006602893, z: -2.9802294e-10}
+      rotation: {x: -0.11268809, y: -0.0032843945, z: -0.028946364, w: 0.9932033}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1}
+    - name: LowerLeg_L
+      parentName: UpperLeg_L
+      position: {x: -2.910383e-11, y: 0.0075222286, z: 6.7499467e-10}
+      rotation: {x: -0.017318651, y: -0.0011711881, z: -0.009246702, w: 0.9998066}
+      scale: {x: 0.9999999, y: 0.99999994, z: 1}
+    - name: Foot_L
+      parentName: LowerLeg_L
+      position: {x: -2.2118911e-11, y: 0.012138451, z: -1.3350919e-10}
+      rotation: {x: 0.009483099, y: 0.00036434102, z: 0.038373236, w: 0.9992184}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Thigh_R
+      parentName: Hip
+      position: {x: -0.0000000012307662, y: -0.0007023954, z: -0.005162208}
+      rotation: {x: -0.00000013356039, y: -0.13445179, z: 0.9909201, w: 0.00000011625621}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: UpperLeg_R
+      parentName: Thigh_R
+      position: {x: -0, y: 0.006602892, z: 2.9802358e-10}
+      rotation: {x: 0.112761766, y: 0.0058174036, z: -0.028658723, w: 0.99319166}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LowerLeg_R
+      parentName: UpperLeg_R
+      position: {x: 1.862645e-10, y: 0.00752223, z: 2.7706845e-10}
+      rotation: {x: 0.017348606, y: -0.0006850897, z: -0.009190465, w: 0.99980706}
+      scale: {x: 1, y: 0.9999998, z: 0.99999994}
+    - name: Foot_R
+      parentName: LowerLeg_R
+      position: {x: 1.9732396e-10, y: 0.0121384645, z: -1.3271347e-10}
+      rotation: {x: -0.009509845, y: -0.0010576216, z: 0.038366616, w: 0.9992179}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: CowboyBody
+      parentName: GunslingerHilda(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
+      scale: {x: 100, y: 100, z: 100}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -103,13 +255,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
