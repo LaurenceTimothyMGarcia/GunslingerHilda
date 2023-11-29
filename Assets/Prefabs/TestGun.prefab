@@ -145,7 +145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5971540863086783702}
-  - component: {fileID: 2623193163465905913}
+  - component: {fileID: 764643131364164064}
   m_Layer: 0
   m_Name: TestGun
   m_TagString: Untagged
@@ -170,7 +170,7 @@ Transform:
   - {fileID: 3281680392613525767}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2623193163465905913
+--- !u!114 &764643131364164064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,21 +179,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 2048959003333168747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b1cca644c9fca142ad5bc3f050bbf58, type: 3}
+  m_Script: {fileID: 11500000, guid: 69aabb8b01f88254e94f826fabab5e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 6113523913597967588, guid: 5c5adf4240406b24293a6f78eaeb402d, type: 3}
-  activePowers: {fileID: 11400000, guid: 8ea3904421a33b041ab9b10803fcda98, type: 2}
-  shootForce: 50
+  shootForce: 10
   upwardForce: 0
-  timeBetweenShooting: 0.25
-  spread: 0
-  reloadTime: 1.5
-  timeBetweenShots: 0
-  magazineSize: 100
+  timeBetweenShooting: 1
+  spread: 0.5
+  reloadTime: 1
+  timeBetweenShots: 1
+  magazineSize: 10
   bulletsPerTap: 1
   allowButtonHold: 0
   state: 0
   cam: {fileID: 0}
   attackPoint: {fileID: 3281680392613525767}
   allowInvoke: 1
+  currentBulletType: {fileID: 2013289005811666221, guid: 5d9e17b6869b28045896c60db60e3682,
+    type: 3}
+  bullet: {fileID: 2013289005811666221, guid: 5d9e17b6869b28045896c60db60e3682, type: 3}
+  homingBullet: {fileID: 2013289005811666221, guid: 393838e6b902fab45bcfb911ceb024bb,
+    type: 3}
+  explosiveBullet: {fileID: 2013289005811666221, guid: 645da9af9e83d444bb59617a3fb25acd,
+    type: 3}
+  piercingBullet: {fileID: 2013289005811666221, guid: 4a17bbfe08817824ea2552614a60a4ca,
+    type: 3}
+  slowBullet: {fileID: 2013289005811666221, guid: 369ec77bfc4297e4ab674371d902125b,
+    type: 3}
