@@ -50,7 +50,7 @@ namespace PlayerInput
                 animator.SetBool("isWalking", false);
             }
 
-            
+
         }
     }
 }
