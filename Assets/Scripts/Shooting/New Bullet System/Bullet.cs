@@ -6,7 +6,7 @@ public abstract class Bullet : MonoBehaviour
 {
     //General bullet properties
     public float bulletLifetime;
-    public int enemyLayer;
+    public LayerMask enemyLayer;
 
     //Default props passed by the gun object on instantiontion - look inside Shoot()
     public Vector3 defaultDirection;
@@ -15,7 +15,7 @@ public abstract class Bullet : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        enemyLayer = LayerMask.NameToLayer("Enemy"); // Set enemy layer
+        // enemyLayer = LayerMask.NameToLayer("Enemy"); // Set enemy layer
         SetBehavior();
         Destroy(this.gameObject, bulletLifetime); //Destroy bullet after lifetime
     }

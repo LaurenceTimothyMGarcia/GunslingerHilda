@@ -120,7 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLifetime: 5
-  enemyLayer: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
   defaultDirection: {x: 26.909626, y: 4.60205, z: 62.351803}
   defaultForce: 10
 --- !u!54 &1828862978409882137

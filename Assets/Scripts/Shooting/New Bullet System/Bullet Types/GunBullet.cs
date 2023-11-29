@@ -11,7 +11,8 @@ public class GunBullet : Bullet
 
     public override void OnCollisionEnter(Collision col) 
     {
-        if (col.gameObject.layer == enemyLayer) {
+        if (col.gameObject.layer == enemyLayer)
+        {
             Debug.Log("Hit Enemy");
         }
         Destroy(this.gameObject);
