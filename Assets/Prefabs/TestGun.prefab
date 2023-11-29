@@ -197,11 +197,12 @@ MonoBehaviour:
   allowInvoke: 1
   currentBulletType: {fileID: 2013289005811666221, guid: 5d9e17b6869b28045896c60db60e3682,
     type: 3}
-  gunBullet: {fileID: 2013289005811666221, guid: 5d9e17b6869b28045896c60db60e3682,
-    type: 3}
+  bullet: {fileID: 2013289005811666221, guid: 5d9e17b6869b28045896c60db60e3682, type: 3}
   homingBullet: {fileID: 2013289005811666221, guid: 393838e6b902fab45bcfb911ceb024bb,
     type: 3}
   explosiveBullet: {fileID: 2013289005811666221, guid: 645da9af9e83d444bb59617a3fb25acd,
     type: 3}
   piercingBullet: {fileID: 2013289005811666221, guid: 4a17bbfe08817824ea2552614a60a4ca,
+    type: 3}
+  slowBullet: {fileID: 2013289005811666221, guid: 369ec77bfc4297e4ab674371d902125b,
     type: 3}

@@ -44,10 +44,11 @@ namespace PlayerInput
 
         public GameObject currentBulletType;
         //Bullet types
-        public GameObject gunBullet;
-        public GameObject homingBullet;
-        public GameObject explosiveBullet;
-        public GameObject piercingBullet;
+        public GameObject bullet; //Default bullet
+        public GameObject homingBullet; //Homing bullet
+        public GameObject explosiveBullet; //Explosive bullet
+        public GameObject piercingBullet; //Piercing bullet
+        public GameObject slowBullet; //Slow bullet
 
 
         private void Awake()
