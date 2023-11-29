@@ -174,7 +174,7 @@ namespace PlayerInput
 
         void OnDrawGizmos() {
             Gizmos.color = Color.red;
-            Gizmos.DrawRay(attackPoint.position, cam.transform.forward * 100f);
+            // Gizmos.DrawRay(attackPoint.position, cam.transform.forward * 100f);
         }
     }
 }

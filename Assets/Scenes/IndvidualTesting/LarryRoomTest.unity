@@ -1303,6 +1303,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 7122557821564814621}
+    - target: {fileID: 1713658013144996978, guid: d81e522e31f2b1f49ac2be065cd7b049,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 7122557821564814621}
     - target: {fileID: 1747863823672471721, guid: d81e522e31f2b1f49ac2be065cd7b049,
         type: 3}
       propertyPath: m_Name
@@ -1322,6 +1327,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273358301829416077, guid: d81e522e31f2b1f49ac2be065cd7b049,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 7122557821564814621}
+    - target: {fileID: 2333873568083244540, guid: d81e522e31f2b1f49ac2be065cd7b049,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 7122557821564814621}
+    - target: {fileID: 2333873568083244540, guid: d81e522e31f2b1f49ac2be065cd7b049,
+        type: 3}
+      propertyPath: spread
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333873568083244540, guid: d81e522e31f2b1f49ac2be065cd7b049,
+        type: 3}
+      propertyPath: reloadTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333873568083244540, guid: d81e522e31f2b1f49ac2be065cd7b049,
+        type: 3}
+      propertyPath: shootForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333873568083244540, guid: d81e522e31f2b1f49ac2be065cd7b049,
+        type: 3}
+      propertyPath: upwardForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333873568083244540, guid: d81e522e31f2b1f49ac2be065cd7b049,
+        type: 3}
+      propertyPath: magazineSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333873568083244540, guid: d81e522e31f2b1f49ac2be065cd7b049,
+        type: 3}
+      propertyPath: bulletsPerTap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333873568083244540, guid: d81e522e31f2b1f49ac2be065cd7b049,
+        type: 3}
+      propertyPath: timeBetweenShots
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333873568083244540, guid: d81e522e31f2b1f49ac2be065cd7b049,
+        type: 3}
+      propertyPath: timeBetweenShooting
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4633280686768221681, guid: d81e522e31f2b1f49ac2be065cd7b049,
         type: 3}
@@ -1589,12 +1644,12 @@ PrefabInstance:
     - target: {fileID: 2733120830572520249, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000021483135
+      value: -0.0000000021483135
       objectReference: {fileID: 0}
     - target: {fileID: 2733120830572520249, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.0334089e-10
+      value: 1.0334089e-10
       objectReference: {fileID: 0}
     - target: {fileID: 2733120830790550172, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}
