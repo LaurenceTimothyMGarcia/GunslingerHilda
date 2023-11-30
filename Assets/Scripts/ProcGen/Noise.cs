@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FloodFill;
 
 // 
 // Creates basic structure for generating the noise map needed for generation
@@ -111,6 +112,8 @@ public static class Noise
         }
 
         // USE FLOOD FILL ALGO
+        int[,] colorMap = new int[mapWidth, mapHeight];
+        colorMap = FloodFiller.GenerateColorMap(noiseMap, mapWidth, mapHeight);
         
 
         return noiseMap;
