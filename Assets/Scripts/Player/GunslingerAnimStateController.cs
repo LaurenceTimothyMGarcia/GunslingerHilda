@@ -50,7 +50,38 @@ namespace PlayerInput
                 animator.SetBool("isWalking", false);
             }
 
+            WeaponSwap();
+        }
 
+        void WeaponSwap()
+        {
+            if (PlayerInputManager.Instance.swapRevolverPressed())
+            {
+                animator.SetBool("useRevolver", true);
+                animator.SetBool("useShotgun", false);
+                animator.SetBool("useSniper", false);
+            }
+
+            if (PlayerInputManager.Instance.swapShotgunPressed())
+            {
+                animator.SetBool("useRevolver", false);
+                animator.SetBool("useShotgun", true);
+                animator.SetBool("useSniper", false);
+            }
+
+            if (PlayerInputManager.Instance.swapSniperPressed())
+            {
+                animator.SetBool("useRevolver", false);
+                animator.SetBool("useShotgun", false);
+                animator.SetBool("useSniper", true);
+            }
+
+            if (PlayerInputManager.Instance.swapHandPressed())
+            {
+                animator.SetBool("useRevolver", false);
+                animator.SetBool("useShotgun", false);
+                animator.SetBool("useSniper", false);
+            }
         }
     }
 }

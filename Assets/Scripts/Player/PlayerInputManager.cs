@@ -29,6 +29,10 @@ namespace PlayerInput
         private InputAction fireAction;
         private InputAction aimAction;
         private InputAction reloadAction;
+        private InputAction swapRevolverAction;
+        private InputAction swapShotgunAction;
+        private InputAction swapSniperAction;
+        private InputAction swapHandAction;
 
         //Basic Movement
         private Vector2 movement;
@@ -58,6 +62,12 @@ namespace PlayerInput
         // Reload
         private bool reload;
 
+        // Weapon Swaps
+        private bool swapRevolver;
+        private bool swapShotgun;
+        private bool swapSniper;
+        private bool swapHand;
+
         //Singleton for only one Input Manager
         private void Awake()
         {
@@ -82,6 +92,10 @@ namespace PlayerInput
             fireAction = input.Player.Fire;
             aimAction = input.Player.Aim;
             reloadAction = input.Player.Reload;
+            swapRevolverAction = input.Player.SwapRevolver;
+            swapShotgunAction = input.Player.SwapShotgun;
+            swapSniperAction = input.Player.SwapSniper;
+            swapHandAction = input.Player.SwapHand;
 
             //Sets player input values with listeners
 
@@ -162,9 +176,23 @@ namespace PlayerInput
                 aimAction.canceled += setAim;
             }
 
-            //JUMPS
+            //Reload
             reloadAction.performed += setReload;
             reloadAction.canceled += setReload;
+
+
+            // Weapon swaps
+            swapRevolverAction.performed += setSwapRevolver;
+            swapRevolverAction.canceled += setSwapRevolver;
+
+            swapShotgunAction.performed += setSwapShotgun;
+            swapShotgunAction.canceled += setSwapShotgun;
+
+            swapSniperAction.performed += setSwapSniper;
+            swapSniperAction.canceled += setSwapSniper;
+
+            swapHandAction.performed += setSwapHand;
+            swapHandAction.canceled += setSwapHand;
         }
 
         //MOVEMENT SETTER AND GETTER
@@ -347,6 +375,44 @@ namespace PlayerInput
         public bool reloadPressed()
         {
             return reload;
+        }
+
+
+        // Weapon Swaps
+        public void setSwapRevolver(InputAction.CallbackContext ctx)
+        {
+            swapRevolver = !swapRevolver;
+        }
+        public bool swapRevolverPressed() 
+        {
+            return swapRevolver;
+        }
+
+        public void setSwapShotgun(InputAction.CallbackContext ctx)
+        {
+            swapShotgun = !swapShotgun;
+        }
+        public bool swapShotgunPressed() 
+        {
+            return swapShotgun;
+        }
+
+        public void setSwapSniper(InputAction.CallbackContext ctx)
+        {
+            swapSniper = !swapSniper;
+        }
+        public bool swapSniperPressed() 
+        {
+            return swapSniper;
+        }
+
+        public void setSwapHand(InputAction.CallbackContext ctx)
+        {
+            swapHand = !swapHand;
+        }
+        public bool swapHandPressed() 
+        {
+            return swapHand;
         }
 
 

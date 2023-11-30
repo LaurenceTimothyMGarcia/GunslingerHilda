@@ -98,6 +98,42 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwapRevolver"",
+                    ""type"": ""Button"",
+                    ""id"": ""db02ade4-4fbf-49d4-ab87-551e3d37578b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwapShotgun"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c7635be-d409-437a-826e-0afda5138d3d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwapSniper"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d0896e9-1f43-483c-8b95-a2cef1daf6fc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwapHand"",
+                    ""type"": ""Button"",
+                    ""id"": ""561fbadd-3d59-4c5c-aae8-996b433cf5a3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -428,6 +464,50 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dbb2bb41-5e5b-4bc2-8779-537cc9166c47"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapShotgun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8bff8559-ecf2-4037-a362-cc8a8ed40e4f"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapHand"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1834e86-ac7a-49a1-992e-13f5c51aab7d"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapRevolver"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61671ebe-667c-4f25-8002-425789de2a34"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapSniper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1023,6 +1103,10 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
+        m_Player_SwapRevolver = m_Player.FindAction("SwapRevolver", throwIfNotFound: true);
+        m_Player_SwapShotgun = m_Player.FindAction("SwapShotgun", throwIfNotFound: true);
+        m_Player_SwapSniper = m_Player.FindAction("SwapSniper", throwIfNotFound: true);
+        m_Player_SwapHand = m_Player.FindAction("SwapHand", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1104,6 +1188,10 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Reload;
+    private readonly InputAction m_Player_SwapRevolver;
+    private readonly InputAction m_Player_SwapShotgun;
+    private readonly InputAction m_Player_SwapSniper;
+    private readonly InputAction m_Player_SwapHand;
     public struct PlayerActions
     {
         private @InputController m_Wrapper;
@@ -1116,6 +1204,10 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
+        public InputAction @SwapRevolver => m_Wrapper.m_Player_SwapRevolver;
+        public InputAction @SwapShotgun => m_Wrapper.m_Player_SwapShotgun;
+        public InputAction @SwapSniper => m_Wrapper.m_Player_SwapSniper;
+        public InputAction @SwapHand => m_Wrapper.m_Player_SwapHand;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1149,6 +1241,18 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Reload.started += instance.OnReload;
             @Reload.performed += instance.OnReload;
             @Reload.canceled += instance.OnReload;
+            @SwapRevolver.started += instance.OnSwapRevolver;
+            @SwapRevolver.performed += instance.OnSwapRevolver;
+            @SwapRevolver.canceled += instance.OnSwapRevolver;
+            @SwapShotgun.started += instance.OnSwapShotgun;
+            @SwapShotgun.performed += instance.OnSwapShotgun;
+            @SwapShotgun.canceled += instance.OnSwapShotgun;
+            @SwapSniper.started += instance.OnSwapSniper;
+            @SwapSniper.performed += instance.OnSwapSniper;
+            @SwapSniper.canceled += instance.OnSwapSniper;
+            @SwapHand.started += instance.OnSwapHand;
+            @SwapHand.performed += instance.OnSwapHand;
+            @SwapHand.canceled += instance.OnSwapHand;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1177,6 +1281,18 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Reload.started -= instance.OnReload;
             @Reload.performed -= instance.OnReload;
             @Reload.canceled -= instance.OnReload;
+            @SwapRevolver.started -= instance.OnSwapRevolver;
+            @SwapRevolver.performed -= instance.OnSwapRevolver;
+            @SwapRevolver.canceled -= instance.OnSwapRevolver;
+            @SwapShotgun.started -= instance.OnSwapShotgun;
+            @SwapShotgun.performed -= instance.OnSwapShotgun;
+            @SwapShotgun.canceled -= instance.OnSwapShotgun;
+            @SwapSniper.started -= instance.OnSwapSniper;
+            @SwapSniper.performed -= instance.OnSwapSniper;
+            @SwapSniper.canceled -= instance.OnSwapSniper;
+            @SwapHand.started -= instance.OnSwapHand;
+            @SwapHand.performed -= instance.OnSwapHand;
+            @SwapHand.canceled -= instance.OnSwapHand;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1367,6 +1483,10 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnSwapRevolver(InputAction.CallbackContext context);
+        void OnSwapShotgun(InputAction.CallbackContext context);
+        void OnSwapSniper(InputAction.CallbackContext context);
+        void OnSwapHand(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
