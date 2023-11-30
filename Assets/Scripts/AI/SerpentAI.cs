@@ -25,7 +25,7 @@ public class SerpentAI : MonoBehaviour
 
     //States
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public bool Serpentspace, playerInAttackRange;
 
     private void Awake()
     {
@@ -37,14 +37,19 @@ public class SerpentAI : MonoBehaviour
     private void Update()
     {
         //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        Serpentspace = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer(); //Switch with patroling, need to burrow when player in range. attack when player out of range.
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (Serpentspace)
+        {
+            Burrow();
+        }
+        else
+        {
+            AttackPlayer();
+        }
     }
-
+    /*
     private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
@@ -59,6 +64,7 @@ public class SerpentAI : MonoBehaviour
             walkPointSet = false;
 
     }
+    */
     private void SearchWalkPoint()
     {
         //Calculate random point in range
@@ -71,9 +77,17 @@ public class SerpentAI : MonoBehaviour
             walkPointSet = true;
     }
 
-    private void ChasePlayer()
+    private void Burrow()
     {
-        agent.SetDestination(player.position);
+        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
+
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+            walkPointSet = true;
+        agent.SetDestination(walkPoint); //fix
+
+
     }
 
     private void AttackPlayer()
@@ -121,15 +135,4 @@ public class SerpentAI : MonoBehaviour
         DestroyEnemy(gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
