@@ -29,6 +29,10 @@ namespace PlayerInput
         private InputAction fireAction;
         private InputAction aimAction;
         private InputAction reloadAction;
+        private InputAction swapRevolverAction;
+        private InputAction swapShotgunAction;
+        private InputAction swapSniperAction;
+        private InputAction swapHandAction;
 
         //Basic Movement
         private Vector2 movement;
@@ -58,6 +62,12 @@ namespace PlayerInput
         // Reload
         private bool reload;
 
+        // Weapon Swaps
+        private bool swapRevolver;
+        private bool swapShotgun;
+        private bool swapSniper;
+        private bool swapHand;
+
         //Singleton for only one Input Manager
         private void Awake()
         {
@@ -82,6 +92,10 @@ namespace PlayerInput
             fireAction = input.Player.Fire;
             aimAction = input.Player.Aim;
             reloadAction = input.Player.Reload;
+            swapRevolverAction = input.Player.SwapRevolver;
+            swapShotgunAction = input.Player.SwapShotgun;
+            swapSniperAction = input.Player.SwapSniper;
+            swapHandAction = input.Player.SwapHand;
 
             //Sets player input values with listeners
 
@@ -162,9 +176,23 @@ namespace PlayerInput
                 aimAction.canceled += setAim;
             }
 
-            //JUMPS
+            //Reload
             reloadAction.performed += setReload;
             reloadAction.canceled += setReload;
+
+
+            // Weapon swaps
+            swapRevolverAction.performed += setSwapRevolver;
+            swapRevolverAction.canceled += setSwapRevolver;
+
+            swapShotgunAction.performed += setSwapShotgun;
+            swapShotgunAction.canceled += setSwapShotgun;
+
+            swapSniperAction.performed += setSwapSniper;
+            swapSniperAction.canceled += setSwapSniper;
+
+            swapHandAction.performed += setSwapHand;
+            swapHandAction.canceled += setSwapHand;
         }
 
         //MOVEMENT SETTER AND GETTER
@@ -208,13 +236,16 @@ namespace PlayerInput
         //dash SETTER AND GETTER
         public void setDash(InputAction.CallbackContext ctx)
         {
-            if (dash)
+            if(!PauseMenu.isPaused)
             {
-                dash = false;
-            }
-            else
-            {
-                dash = true;
+                if (dash)
+                {
+                    dash = false;
+                }
+                else
+                {
+                    dash = true;
+                }
             }
         }
         public bool dashPressed()
@@ -225,13 +256,16 @@ namespace PlayerInput
         //Sets Crouch boolean to true or false
         public void setCrouch(InputAction.CallbackContext ctx)
         {
-            if (crouch)
+            if(!PauseMenu.isPaused)
             {
-                crouch = false;
-            }
-            else
-            {
-                crouch = true;
+                if (crouch)
+                {
+                    crouch = false;
+                }
+                else
+                {
+                    crouch = true;
+                }
             }
         }
         public bool crouchPressed()
@@ -299,14 +333,17 @@ namespace PlayerInput
         //Sets fire boolean to true or false
         public void setFire(InputAction.CallbackContext ctx)
         {
-            if (fire)
+            if(!PauseMenu.isPaused)
             {
-                fire = false;
-            }
-            else
-            {
-                fire = true;
-            }
+                if (fire)
+                {
+                    fire = false;
+                }
+                else
+                {
+                    fire = true;
+                }
+            } 
         }
         public bool firePressed()
         {
@@ -316,13 +353,16 @@ namespace PlayerInput
         //Sets aim boolean to true or false
         public void setAim(InputAction.CallbackContext ctx)
         {
-            if (aim)
+            if(!PauseMenu.isPaused)
             {
-                aim = false;
-            }
-            else
-            {
-                aim = true;
+                if (aim)
+                {
+                    aim = false;
+                }
+                else
+                {
+                    aim = true;
+                }
             }
         }
         public bool aimPressed()
@@ -333,20 +373,61 @@ namespace PlayerInput
         //Reload SETTER AND GETTER
         public void setReload(InputAction.CallbackContext ctx)
         {
-            //Sets Reload based on current state of Reload
-            if (reload)
+            if(!PauseMenu.isPaused)
             {
-                reload = false;
-            }
-            else
-            {
-                reload = true;
+                //Sets Reload based on current state of Reload
+                if (reload)
+                {
+                    reload = false;
+                }
+                else
+                {
+                    reload = true;
+                }
             }
         }
         //Get reload
         public bool reloadPressed()
         {
             return reload;
+        }
+
+
+        // Weapon Swaps
+        public void setSwapRevolver(InputAction.CallbackContext ctx)
+        {
+            swapRevolver = !swapRevolver;
+        }
+        public bool swapRevolverPressed() 
+        {
+            return swapRevolver;
+        }
+
+        public void setSwapShotgun(InputAction.CallbackContext ctx)
+        {
+            swapShotgun = !swapShotgun;
+        }
+        public bool swapShotgunPressed() 
+        {
+            return swapShotgun;
+        }
+
+        public void setSwapSniper(InputAction.CallbackContext ctx)
+        {
+            swapSniper = !swapSniper;
+        }
+        public bool swapSniperPressed() 
+        {
+            return swapSniper;
+        }
+
+        public void setSwapHand(InputAction.CallbackContext ctx)
+        {
+            swapHand = !swapHand;
+        }
+        public bool swapHandPressed() 
+        {
+            return swapHand;
         }
 
 

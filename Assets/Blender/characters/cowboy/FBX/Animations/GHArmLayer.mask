@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GHArmLayer
+  m_Mask: 00000000000000000000000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/Hip
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine/UpperBody
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine/UpperBody/Neck
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine/UpperBody/Neck/Head
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine/UpperBody/Neck/Head/Hat
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine/UpperBody/Neck/Head/Hat/Hat
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine/UpperBody/Neck/Head/Head
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine/UpperBody/Neck/Head/Head/Hair
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine/UpperBody/Neck/Head/Mask
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine/UpperBody/Neck/Head/Mask/Mask
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine/UpperBody/Neck/Head/Mask/Mask/MaskTie
+    m_Weight: 0
+  - m_Path: Armature/Hip/Spine/UpperBody/UpperArm_L
+    m_Weight: 1
+  - m_Path: Armature/Hip/Spine/UpperBody/UpperArm_L/LowerArm_L
+    m_Weight: 1
+  - m_Path: Armature/Hip/Spine/UpperBody/UpperArm_L/LowerArm_L/Hand_L
+    m_Weight: 1
+  - m_Path: Armature/Hip/Spine/UpperBody/UpperArm_R
+    m_Weight: 1
+  - m_Path: Armature/Hip/Spine/UpperBody/UpperArm_R/LowerArm_R
+    m_Weight: 1
+  - m_Path: Armature/Hip/Spine/UpperBody/UpperArm_R/LowerArm_R/Hand_R
+    m_Weight: 1
+  - m_Path: Armature/Hip/Spine/UpperBody/UpperArm_R/LowerArm_R/Hand_R/Gun
+    m_Weight: 0
+  - m_Path: Armature/Hip/Thigh_L
+    m_Weight: 0
+  - m_Path: Armature/Hip/Thigh_L/UpperLeg_L
+    m_Weight: 0
+  - m_Path: Armature/Hip/Thigh_L/UpperLeg_L/LowerLeg_L
+    m_Weight: 0
+  - m_Path: Armature/Hip/Thigh_L/UpperLeg_L/LowerLeg_L/Foot_L
+    m_Weight: 0
+  - m_Path: Armature/Hip/Thigh_R
+    m_Weight: 0
+  - m_Path: Armature/Hip/Thigh_R/UpperLeg_R
+    m_Weight: 0
+  - m_Path: Armature/Hip/Thigh_R/UpperLeg_R/LowerLeg_R
+    m_Weight: 0
+  - m_Path: Armature/Hip/Thigh_R/UpperLeg_R/LowerLeg_R/Foot_R
+    m_Weight: 0
+  - m_Path: CowboyBody
+    m_Weight: 0

@@ -15,9 +15,13 @@ public class Spawner : MonoBehaviour
     private float[,] heightMap;
     private Vector3[] points;
     private List<Vector3> validPoints;
+    private List<Vector3> validPlayerPoints;
 
     [Range(0,1)]
     public float spawnGroundLevel;
+
+    [Range(0,1)]
+    public float spawnPlayerLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -29,33 +33,30 @@ public class Spawner : MonoBehaviour
 
         // Gets list of valid points
         validPoints = ValidLocations(points, spawnGroundLevel);
+        validPlayerPoints = ValidLocations(points, spawnPlayerLevel);
         Debug.Log("NOISE MAP SIZE: " + (heightMap.GetLength(0) * heightMap.GetLength(1)));
         Debug.Log("POINTS ARRAY SIZE: " + points.Length);
         Debug.Log("VALID POINTS SIZE: " + validPoints.Count);
 
         // Sets player location
-        SpawnEntity(player, points);
+        SpawnEntity(player, validPoints);
 
         // Debugging to check where the spawn points are
         if (runTestSpawn)
         {
             for (int i = 0; i < amountTestObj; i++)
             {
-                SpawnEntity(testSpawn, points);
+                SpawnEntity(testSpawn, validPoints);
             }
         }
     }
 
-    private void SpawnEntity(GameObject entity, Vector3[] points)
+    private void SpawnEntity(GameObject entity, List<Vector3> spawnPoints)
     {
 
-        // int randomPoint = Random.Range(0, points.Length);
+        int randomPoint = Random.Range(0, spawnPoints.Count);
 
-        // Vector3 selectedPoint = points[randomPoint];
-
-        int randomPoint = Random.Range(0, validPoints.Count);
-
-        Vector3 selectedPoint = validPoints[randomPoint];
+        Vector3 selectedPoint = spawnPoints[randomPoint];
         Debug.Log("Location: " + selectedPoint);
 
         // If player just change location, that way you dont need to readd everything
