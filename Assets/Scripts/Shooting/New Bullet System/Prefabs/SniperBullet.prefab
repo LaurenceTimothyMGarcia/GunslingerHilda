@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19095fdcbc91b404cb0e606f8954e54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletLifeTime: 0
+  bulletLifeTime: 5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512

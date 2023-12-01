@@ -80,12 +80,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69aabb8b01f88254e94f826fabab5e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootForce: 5
+  shootForce: 100
   upwardForce: 1
   timeBetweenShooting: 1
-  spread: 1
+  spread: 0.1
   reloadTime: 1
-  timeBetweenShots: 1
+  timeBetweenShots: 0.5
   magazineSize: 5
   bulletsPerTap: 1
   allowButtonHold: 0
@@ -2042,6 +2042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
+  canvas: {fileID: 0}
   maxHealth: 100
   health: 100
 --- !u!1 &4633280688058326121
