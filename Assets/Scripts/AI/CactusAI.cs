@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SerpentAI : MonoBehaviour
+public class CactusAI : MonoBehaviour
 {
     public NavMeshAgent agent;
 
@@ -12,6 +12,10 @@ public class SerpentAI : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
+
+    public float patrolspeed = 2f;
+
+    public float chargespeed = 10f;
 
     //Patroling
     public Vector3 walkPoint;
@@ -25,33 +29,34 @@ public class SerpentAI : MonoBehaviour
 
     //States
     public float sightRange, attackRange;
-    public bool Serpentspace, playerInAttackRange;
+    public bool playerInSightRange, playerInAttackRange;
 
     private void Awake()
     {
         player = GameObject.Find("Player Obj").transform;
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = patrolspeed;
 
     }
 
     private void Update()
     {
         //Check for sight and attack range
-        Serpentspace = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
-        if (Serpentspace)
+        if (playerInSightRange)
         {
-            Burrow();
+            StartCoroutine(Charge());
         }
         else
         {
-            AttackPlayer();
+            Patroling();
         }
     }
-    /*
+
     private void Patroling()
     {
+        agent.speed = patrolspeed;
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -64,7 +69,15 @@ public class SerpentAI : MonoBehaviour
             walkPointSet = false;
 
     }
-    */
+
+    IEnumerator Charge()
+    {
+        Vector3 oldpos = player.position;
+        agent.speed = chargespeed;
+        yield return new WaitForSeconds(2);
+        ChasePlayer(oldpos);
+
+    }
     private void SearchWalkPoint()
     {
         //Calculate random point in range
@@ -77,48 +90,16 @@ public class SerpentAI : MonoBehaviour
             walkPointSet = true;
     }
 
-    private void Burrow()
+    private void ChasePlayer(Vector3 oldpos)
     {
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-            walkPointSet = true;
-        agent.SetDestination(walkPoint); //fix
-
-
+        agent.SetDestination(oldpos);
     }
 
-    private void AttackPlayer()
-    {
-        //Make sure enemy doesn't move
-        agent.SetDestination(transform.position);
-
-        transform.LookAt(player);
-
-        if (!alreadyAttacked)
-        {
-            //Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
-
-        }
-    }
-
-    private void ResetAttack()
-    {
-        alreadyAttacked = false;
-    }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if (health <= 0) 
+        if (health <= 0)
             Invoke(nameof(DestroyEnemy), 0.5f);
     }
 
@@ -134,4 +115,5 @@ public class SerpentAI : MonoBehaviour
     {
         DestroyEnemy(gameObject);
     }
+
 }
