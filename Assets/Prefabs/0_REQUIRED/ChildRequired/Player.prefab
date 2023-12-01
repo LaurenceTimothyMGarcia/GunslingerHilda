@@ -3067,7 +3067,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   attackPoint: {fileID: 328646143642069729}
   allowInvoke: 1
-  currentBulletType: {fileID: 2013289005811666221, guid: 74c7da75edc651b40ad1bd62c7dcc7d9,
+  currentBulletType: {fileID: 2013289005811666221, guid: 645da9af9e83d444bb59617a3fb25acd,
     type: 3}
   bullet: {fileID: 2013289005811666221, guid: 74c7da75edc651b40ad1bd62c7dcc7d9, type: 3}
   homingBullet: {fileID: 2013289005811666221, guid: 393838e6b902fab45bcfb911ceb024bb,

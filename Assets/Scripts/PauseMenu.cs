@@ -5,26 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject Crosshair;
+    public GameObject gameUI;
     public GameObject pauseMenu; 
     public static bool isPaused;
 
     public GameObject Camera; 
 
-    public Behaviour Gun; 
+    // public Behaviour Gun; 
 
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false); 
-    
+        gameUI.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
         // When Pause Key is Pressed, Game is Paused
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Pause key is Pressed");
 
@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true); 
 
         // While Game is Paused, Turn off Crosshair 
-        Crosshair.SetActive(false); 
+        gameUI.SetActive(false); 
 
         // Pause Game 
         Time.timeScale = 0f; 
@@ -58,7 +58,7 @@ public class PauseMenu : MonoBehaviour
         Camera.SetActive(false); 
         
         // While Game is Paused, Turn off Gun Script
-        Gun.enabled = false;
+        // Gun.enabled = false;
     }
 
     public void ResumeGame()
@@ -66,7 +66,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         
         // While Game is Resumed, Turn on Crosshair
-        Crosshair.SetActive(true);
+        gameUI.SetActive(true);
 
         // Resume Game 
         Time.timeScale = 1f; 
@@ -80,7 +80,7 @@ public class PauseMenu : MonoBehaviour
         Camera.SetActive(true);
         
         // While Game is Resumed, turn on Gun Script 
-        Gun.enabled = true;
+        // Gun.enabled = true;
     }
 
     public void GoToMainMenu()
