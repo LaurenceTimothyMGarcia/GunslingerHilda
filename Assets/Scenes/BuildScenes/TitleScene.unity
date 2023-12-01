@@ -652,8 +652,8 @@ MonoBehaviour:
   sounds:
   - name: ThemeOfABastard
     clip: {fileID: 8300000, guid: 6cbe25fe8856ac04b95593c089e2b181, type: 3}
-    volume: 0.488
-    pitch: 0
+    volume: 0.469
+    pitch: 1
     loop: 1
     source: {fileID: 0}
 --- !u!4 &1047917056
