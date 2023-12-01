@@ -36,16 +36,21 @@ public class DummyHealth : MonoBehaviour
         healthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
         {
-            print("ded");
+            KillEnemy();
         }
     }
 
-    // The Toiler flashbacks (BUT BETTER BECAUSE THE DAMAGE IS CONTAINED WITHIN THE ENEMY SCRIPT, NOT THE HITBOX OF THE BULLET WOOOOOOO)
-    private void OnTriggerEnter(Collider bullet)
+    private void KillEnemy()
     {
-        if (bullet.name == "TempBullet(Clone)")
+        Destroy(this.gameObject);
+    }
+
+    // The Toiler flashbacks (BUT BETTER BECAUSE THE DAMAGE IS CONTAINED WITHIN THE ENEMY SCRIPT, NOT THE HITBOX OF THE BULLET WOOOOOOO)
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("Bullet"))
         {
-           TakeDamage(20);
+           TakeDamage(col.gameObject.GetComponent<Damage>().damage);
         }
         
     }

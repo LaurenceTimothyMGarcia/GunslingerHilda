@@ -14,7 +14,7 @@ public class SerpentAI : MonoBehaviour
     public float health;
 
     //Patroling
-    public Vector3 walkPoint;
+    private Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
@@ -22,14 +22,18 @@ public class SerpentAI : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
+    public GameObject attackPoint;
 
     //States
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public bool Serpentspace, playerInAttackRange;
+
+    // Animator
+    public Animator animator;
 
     private void Awake()
     {
-        player = GameObject.Find("Player Obj").transform;
+        player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
 
     }
@@ -37,20 +41,28 @@ public class SerpentAI : MonoBehaviour
     private void Update()
     {
         //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        Serpentspace = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer(); //Switch with patroling, need to burrow when player in range. attack when player out of range.
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (Serpentspace)
+        {
+            Patroling();
+        }
+        else
+        {
+            AttackPlayer();
+        }
     }
-
+    
     private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
+        {
+            animator.SetBool("isMoving", true);
             agent.SetDestination(walkPoint);
+        }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
@@ -71,14 +83,25 @@ public class SerpentAI : MonoBehaviour
             walkPointSet = true;
     }
 
-    private void ChasePlayer()
+    private void Burrow()
     {
-        agent.SetDestination(player.position);
+        animator.SetBool("isMoving", true);
+
+        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
+
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+            walkPointSet = true;
+        agent.SetDestination(walkPoint); //fix
+
+
     }
 
     private void AttackPlayer()
     {
         //Make sure enemy doesn't move
+        animator.SetBool("isMoving", false);
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
@@ -86,9 +109,10 @@ public class SerpentAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             //Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            animator.SetTrigger("shoot");
+            Rigidbody rb = Instantiate(projectile, attackPoint.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            // rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
