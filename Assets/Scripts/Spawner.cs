@@ -6,7 +6,9 @@ public class Spawner : MonoBehaviour
 {
     public MapGenerator mapGen;
     public MeshFilter meshVert;
+
     public GameObject player;
+    public GameObject lauoai;
 
     public GameObject skeleton;
     public int skeletonAmt;
@@ -86,6 +88,7 @@ public class Spawner : MonoBehaviour
         if (entity.gameObject.tag == "Player")
         {
             entity.transform.position = selectedPoint * mapGen.terrainData.uniformScale;
+            // lauoai.transform.position = selectedPoint * mapGen.terrainData.uniformScale;
         }
         else
         {

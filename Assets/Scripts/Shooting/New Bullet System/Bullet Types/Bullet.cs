@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
             Debug.Log("Hit player");
         }
 
-        Debug.Log("Destrooyed");
+        // Debug.Log("Destrooyed");
         Destroy(this.gameObject);
     }
 }
