@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public EnemyHealth healthBar;
+    public GameObject canvas;
 
     public float maxHealth = 100;
     public float health = 100;
@@ -34,6 +35,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void KillPlayer()
     {
+        canvas.GetComponent<DeathMenu>().DeathScreen();
+
         Destroy(this.gameObject);
     }
 
