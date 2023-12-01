@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 // Prints the map onto a plane texture
@@ -10,6 +11,8 @@ public class MapDisplay : MonoBehaviour
     public MeshFilter meshFilter;
     public MeshRenderer meshRenderer;
     public MeshCollider meshCollider;
+
+    public NavMeshSurface surface;
 
     public void DrawTexture(Texture2D texture)
     {
@@ -25,5 +28,7 @@ public class MapDisplay : MonoBehaviour
         meshFilter.transform.localScale = Vector3.one * FindAnyObjectByType<MapGenerator>().terrainData.uniformScale;
 
         meshCollider.sharedMesh = meshData.CreateMesh();
+
+        surface.BuildNavMesh();
     }
 }

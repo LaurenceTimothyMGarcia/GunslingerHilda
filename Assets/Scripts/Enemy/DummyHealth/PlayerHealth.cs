@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        Debug.Log("Player Collide");
+        // Debug.Log("Player Collide");
         if (col.gameObject.CompareTag("EnemyBullet"))
         {
             TakeDamage(col.gameObject.GetComponent<Damage>().damage);
