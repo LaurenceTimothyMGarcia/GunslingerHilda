@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3689637154685900069}
   - component: {fileID: 1828862978409882137}
   - component: {fileID: 5704064326140049739}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShotgunBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 8228097443312343116}
   - component: {fileID: 5996676345825691123}
   - component: {fileID: 834375728132888467}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6276195446406846410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShotgunBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 6015256446836474932}
   - component: {fileID: 7837326465032590936}
   - component: {fileID: 8750537673156269062}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}

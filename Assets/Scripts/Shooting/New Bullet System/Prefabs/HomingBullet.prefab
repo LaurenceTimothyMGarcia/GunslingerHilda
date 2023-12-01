@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3689637154685900069}
   - component: {fileID: 6034071043512226454}
   - component: {fileID: 3054700384117805432}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HomingBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1562595c2358c9c49bcdc5350f27e187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletLifetime: 5
+  bulletLifeTime: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0

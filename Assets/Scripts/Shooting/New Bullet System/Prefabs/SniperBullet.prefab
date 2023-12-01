@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9175896989497337653}
   - component: {fileID: 6800224230409747082}
   - component: {fileID: 500756044841986282}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,9 +98,9 @@ GameObject:
   - component: {fileID: 3689637154685900069}
   - component: {fileID: 1828862978409882137}
   - component: {fileID: 5704064326140049739}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SniperBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6520860642524473523}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SniperBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 6781644146578766669}
   - component: {fileID: 7035889601335470369}
   - component: {fileID: 8365261567857077119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: f2112d72f27effb4cac36a36bea0f954
+=======
 guid: 065c73164227f8b46a55b7cd5641296c
+>>>>>>> origin/LarryBranch
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
