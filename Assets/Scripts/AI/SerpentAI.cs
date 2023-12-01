@@ -14,7 +14,7 @@ public class SerpentAI : MonoBehaviour
     public float health;
 
     //Patroling
-    public Vector3 walkPoint;
+    private Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
@@ -58,8 +58,10 @@ public class SerpentAI : MonoBehaviour
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
+        {
             animator.SetBool("isMoving", true);
             agent.SetDestination(walkPoint);
+        }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 

@@ -18,18 +18,20 @@ public class CactusAI : MonoBehaviour
     public float chargespeed = 10f;
 
     //Patroling
-    public Vector3 walkPoint;
+    private Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    public GameObject projectile;
+    // public GameObject projectile;
+    private bool currentRolling;
+    public float chargeTime;
 
     //States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public float sightRange;
+    public bool playerInSightRange;
 
     // Animator
     public Animator animator;
@@ -51,7 +53,6 @@ public class CactusAI : MonoBehaviour
         {
             animator.SetBool("chargingUp", true);
             StartCoroutine(Charge());
-            animator.SetBool("finishRoll", false);
         }
         else
         {
@@ -61,11 +62,15 @@ public class CactusAI : MonoBehaviour
 
     private void Patroling()
     {
-        agent.speed = patrolspeed;
+        animator.SetBool("endRoll", true);
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
+        {
+            agent.speed = patrolspeed;
+            agent.acceleration = patrolspeed;
             agent.SetDestination(walkPoint);
+        }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
@@ -75,17 +80,6 @@ public class CactusAI : MonoBehaviour
 
     }
 
-    IEnumerator Charge()
-    {
-        Vector3 oldpos = player.position;
-        agent.speed = chargespeed;
-        yield return new WaitForSeconds(2);
-        ChasePlayer(oldpos);
-
-        animator.SetBool("chargingUp", false);
-        animator.SetBool("finishRoll", true);
-
-    }
     private void SearchWalkPoint()
     {
         //Calculate random point in range
@@ -98,9 +92,44 @@ public class CactusAI : MonoBehaviour
             walkPointSet = true;
     }
 
+    IEnumerator Charge()
+    {
+        Vector3 oldpos = player.position;
+        agent.speed = chargespeed;
+        agent.acceleration = chargespeed;
+        currentRolling = true;
+        agent.SetDestination(transform.position);
+
+        yield return new WaitForSeconds(chargeTime);
+
+        ChasePlayer(oldpos);
+
+        animator.SetBool("chargingUp", false);
+        
+    }
+    
     private void ChasePlayer(Vector3 oldpos)
     {
-        agent.SetDestination(oldpos);
+        // Debug.Log(currentRolling);
+
+        if (!currentRolling) 
+        {
+
+        }
+
+        if (currentRolling)
+        {
+            
+            agent.SetDestination(oldpos);
+        }
+
+        Vector3 distToPlayerPoint = transform.position - oldpos;
+
+        if (distToPlayerPoint.magnitude < 2f)   
+        {
+            currentRolling = false;
+            return;
+        }
     }
 
 
@@ -113,8 +142,6 @@ public class CactusAI : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
