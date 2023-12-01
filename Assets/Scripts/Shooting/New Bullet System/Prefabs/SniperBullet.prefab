@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3689637154685900069}
   - component: {fileID: 1828862978409882137}
   - component: {fileID: 5704064326140049739}
+  - component: {fileID: -451752819655105123}
   m_Layer: 8
   m_Name: SniperBullet
   m_TagString: Bullet
@@ -237,6 +238,19 @@ MonoBehaviour:
     m_Bits: 512
   defaultDirection: {x: 0, y: 0, z: 0}
   defaultForce: 0
+--- !u!114 &-451752819655105123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013289005811666221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6e5afb573026f48846223133278321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
 --- !u!1 &5851601536023491081
 GameObject:
   m_ObjectHideFlags: 0

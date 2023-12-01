@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3689637154685900069}
   - component: {fileID: 6034071043512226454}
   - component: {fileID: 3054700384117805432}
+  - component: {fileID: -2646488928564122076}
   m_Layer: 8
   m_Name: HomingBullet
   m_TagString: Bullet
@@ -152,3 +153,16 @@ MonoBehaviour:
     m_Bits: 0
   defaultDirection: {x: 0, y: 0, z: 0}
   defaultForce: 0
+--- !u!114 &-2646488928564122076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013289005811666221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6e5afb573026f48846223133278321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
