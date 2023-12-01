@@ -240,9 +240,9 @@ MonoBehaviour:
   defaultForce: 0
   explosion: {fileID: 5357256850933978050, guid: bfd3d17e16af5b34e96126d467af8371,
     type: 3}
-  explosionDamage: 20
+  explosionDamage: 25
   explosionRange: 5
-  explosionForce: 20
+  explosionForce: 50
 --- !u!114 &-6901144697157763790
 MonoBehaviour:
   m_ObjectHideFlags: 0
