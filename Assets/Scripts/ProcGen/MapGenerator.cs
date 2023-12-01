@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Threading;
+using FloodFill;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class MapGenerator : MonoBehaviour
     public const int mapChunkSize = 241;
     [Range(0,6)]
     public int editorLOD;
+
+    [Tooltip("Noise values below this threshold will count as being a separate terrain, or \"color\". See FloodFiller.cs for more info")]
+    public float terrainThreshold = 0.501f;
 
     [Tooltip("Allows for generator to auto update the parameters above")]
     public bool autoUpdate;
@@ -146,6 +150,8 @@ public class MapGenerator : MonoBehaviour
 
     public MapData GenerateMapData(Vector2 center)
     {
+        FloodFiller.terrainThreshold = terrainThreshold;
+
         int randomNum;
 
         if (noiseData.setSeed)
