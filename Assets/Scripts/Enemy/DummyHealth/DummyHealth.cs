@@ -12,6 +12,10 @@ public class DummyHealth : MonoBehaviour
     [SerializeField] float maxHealth = 100;
     [SerializeField] float health = 100;
 
+    // Score
+    public ScoreSystem score;
+    public int scorePoints = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +46,7 @@ public class DummyHealth : MonoBehaviour
 
     private void KillEnemy()
     {
+        score.EnemyKilled(scorePoints);
         Destroy(this.gameObject);
     }
 

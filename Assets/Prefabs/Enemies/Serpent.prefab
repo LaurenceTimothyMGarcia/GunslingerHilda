@@ -515,6 +515,8 @@ MonoBehaviour:
   healthBar: {fileID: 6368195108126521894}
   maxHealth: 25
   health: 25
+  score: {fileID: 11400000, guid: 9ba9c5080f87d8b4d8308ca1a0eed248, type: 2}
+  scorePoints: 5
 --- !u!54 &7325937160021874717
 Rigidbody:
   m_ObjectHideFlags: 0

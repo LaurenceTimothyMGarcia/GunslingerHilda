@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class QuickReset : MonoBehaviour
 {
+    public ScoreSystem score;
+
     // Update is called once per frame
     void Update()
     {
@@ -14,6 +16,7 @@ public class QuickReset : MonoBehaviour
 
         if (PlayerInput.PlayerInputManager.Instance.crouchPressed())
         {
+            score.arenaVisited();
             SceneManager.LoadScene("PrimaryLevel");
         }
     }

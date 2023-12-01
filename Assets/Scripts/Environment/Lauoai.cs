@@ -7,8 +7,13 @@ public class Lauoai : MonoBehaviour
 {
     private bool canWarp = false;
 
+    public ScoreSystem score;
+    public GameObject warpText;
+
     void Update()
     {
+        warpText.SetActive(canWarp);
+
         if (canWarp)
         {
             if (Input.GetKeyDown(KeyCode.E)) // Ideally this should be a part of PlayerInput and not hardcoded to E
@@ -26,6 +31,7 @@ public class Lauoai : MonoBehaviour
         {
             canWarp = true;
             Debug.Log($"{this}: canWarp set to {canWarp}");
+            warpText.SetActive(true);
         }
     }
 
@@ -39,12 +45,14 @@ public class Lauoai : MonoBehaviour
         {
             canWarp = false;
             Debug.Log($"{this}: canWarp set to {canWarp}");
+            warpText.SetActive(false);
         }
     }
 
     void Warp()
     {
         // For now, this just reloads the current scene.
+        score.arenaVisited();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

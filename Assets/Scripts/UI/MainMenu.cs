@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public ScoreSystem score;
+
     public void PlayGame()
     {
+        score.ResetScore();
         SceneManager.LoadScene("PrimaryLevel"); // The scene here is a place holder, substitute LarryRoom for the scene with the first level
                                              // this should work once scene build order is decided
     }

@@ -140,4 +140,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb3c88d0c4569736b94f8b28865128f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alwaysEnableWarp: 0
+  score: {fileID: 11400000, guid: 9ba9c5080f87d8b4d8308ca1a0eed248, type: 2}
