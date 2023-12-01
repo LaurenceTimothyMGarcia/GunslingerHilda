@@ -22,6 +22,7 @@ public class SerpentAI : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
+    public GameObject attackPoint;
 
     //States
     public float sightRange, attackRange;
@@ -109,7 +110,7 @@ public class SerpentAI : MonoBehaviour
         {
             //Attack code here
             animator.SetTrigger("shoot");
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, attackPoint.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
