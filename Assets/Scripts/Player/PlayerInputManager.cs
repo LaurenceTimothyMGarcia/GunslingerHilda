@@ -236,13 +236,16 @@ namespace PlayerInput
         //dash SETTER AND GETTER
         public void setDash(InputAction.CallbackContext ctx)
         {
-            if (dash)
+            if(!PauseMenu.isPaused)
             {
-                dash = false;
-            }
-            else
-            {
-                dash = true;
+                if (dash)
+                {
+                    dash = false;
+                }
+                else
+                {
+                    dash = true;
+                }
             }
         }
         public bool dashPressed()
@@ -253,13 +256,16 @@ namespace PlayerInput
         //Sets Crouch boolean to true or false
         public void setCrouch(InputAction.CallbackContext ctx)
         {
-            if (crouch)
+            if(!PauseMenu.isPaused)
             {
-                crouch = false;
-            }
-            else
-            {
-                crouch = true;
+                if (crouch)
+                {
+                    crouch = false;
+                }
+                else
+                {
+                    crouch = true;
+                }
             }
         }
         public bool crouchPressed()
@@ -327,14 +333,17 @@ namespace PlayerInput
         //Sets fire boolean to true or false
         public void setFire(InputAction.CallbackContext ctx)
         {
-            if (fire)
+            if(!PauseMenu.isPaused)
             {
-                fire = false;
-            }
-            else
-            {
-                fire = true;
-            }
+                if (fire)
+                {
+                    fire = false;
+                }
+                else
+                {
+                    fire = true;
+                }
+            } 
         }
         public bool firePressed()
         {
@@ -344,13 +353,16 @@ namespace PlayerInput
         //Sets aim boolean to true or false
         public void setAim(InputAction.CallbackContext ctx)
         {
-            if (aim)
+            if(!PauseMenu.isPaused)
             {
-                aim = false;
-            }
-            else
-            {
-                aim = true;
+                if (aim)
+                {
+                    aim = false;
+                }
+                else
+                {
+                    aim = true;
+                }
             }
         }
         public bool aimPressed()
@@ -361,14 +373,17 @@ namespace PlayerInput
         //Reload SETTER AND GETTER
         public void setReload(InputAction.CallbackContext ctx)
         {
-            //Sets Reload based on current state of Reload
-            if (reload)
+            if(!PauseMenu.isPaused)
             {
-                reload = false;
-            }
-            else
-            {
-                reload = true;
+                //Sets Reload based on current state of Reload
+                if (reload)
+                {
+                    reload = false;
+                }
+                else
+                {
+                    reload = true;
+                }
             }
         }
         //Get reload

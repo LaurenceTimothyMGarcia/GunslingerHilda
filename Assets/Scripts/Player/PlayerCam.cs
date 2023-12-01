@@ -21,35 +21,30 @@ namespace PlayerInput
 
 
         private void Start()
-        {
+        {   
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
 
 
         private void Update()
-        {
+        {   
             if (!PlayerInputManager.Instance.isLookingPressed())
             {
                 Debug.Log("Not moving");
                 return;
             }
-
             // Debug.Log("Looking Player:" + PlayerInputManager.Instance.getLooking());
             // Debug.Log("Looking Player Raw:" + PlayerInputManager.Instance.getLookingRaw());
-
             float controllerX = PlayerInputManager.Instance.getLooking().x * Time.deltaTime * sensX;
             float controllerY = PlayerInputManager.Instance.getLooking().y * Time.deltaTime * sensY;
-            
             // Debug.Log("Controller X:" + controllerX);
             // Debug.Log("Controller Y:" + controllerY);
-
             yRotation += controllerX;
             xRotation -= controllerY;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
             transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
             orientation.rotation = Quaternion.Euler(0, yRotation, 0);
-        }
-    }
-}
+        }   
+    }   
+}   
