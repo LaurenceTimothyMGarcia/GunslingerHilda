@@ -47,7 +47,7 @@ public class DeathMenu : MonoBehaviour
     {
         // Go To Main Menu Scene 
         Time.timeScale = 1f;
-        // SceneManager.LoadScene("Whatever Scene is the Main Menu")
+        SceneManager.LoadScene("TitleScene");
     }
 
     public void QuitGame()

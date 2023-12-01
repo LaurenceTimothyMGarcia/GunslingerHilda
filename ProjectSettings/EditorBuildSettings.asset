@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ProcTerrain.unity
-    guid: 8dace62767a3241488c18911fcadc92d
+    path: Assets/Scenes/BuildScenes/TitleScene.unity
+    guid: 7047e8ae0726d0146ade62964a97de1f
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/BuildScenes/PrimaryLevel.unity
+    guid: cacdeb16bc885344cb7962392a9062bc
   m_configObjects: {}

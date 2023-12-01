@@ -14,7 +14,7 @@ public class QuickReset : MonoBehaviour
 
         if (PlayerInput.PlayerInputManager.Instance.crouchPressed())
         {
-            SceneManager.LoadScene("ProcTerrain");
+            SceneManager.LoadScene("PrimaryLevel");
         }
     }
 }
