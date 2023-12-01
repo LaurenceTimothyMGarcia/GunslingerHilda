@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704189686738999173}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.70710677, z: 0.70710677, w: 0}
+  m_LocalRotation: {x: 0.12278784, y: 0.6963643, z: 0.6963643, w: 0.12278784}
   m_LocalPosition: {x: -0.0024073618, y: 0.000040658415, z: -0.0015227437}
   m_LocalScale: {x: 1.0000004, y: 1.0000004, z: 1.0000004}
   m_ConstrainProportionsScale: 0
@@ -67,7 +67,7 @@ Transform:
   - {fileID: 5096319234730303922}
   - {fileID: 3977650603670116163}
   m_Father: {fileID: 7765854896437745747}
-  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: -70, y: 90, z: 90}
 --- !u!114 &1713658013144996978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,25 +80,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69aabb8b01f88254e94f826fabab5e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootForce: 0
-  upwardForce: 0
-  timeBetweenShooting: 0
-  spread: 0
-  reloadTime: 0
-  timeBetweenShots: 0
-  magazineSize: 0
-  bulletsPerTap: 0
+  shootForce: 15
+  upwardForce: 1
+  timeBetweenShooting: 1
+  spread: 1
+  reloadTime: 1
+  timeBetweenShots: 1
+  magazineSize: 5
+  bulletsPerTap: 1
   allowButtonHold: 0
   state: 0
   cam: {fileID: 0}
   attackPoint: {fileID: 3977650603670116163}
   allowInvoke: 1
-  currentBulletType: {fileID: 0}
-  bullet: {fileID: 0}
-  homingBullet: {fileID: 0}
-  explosiveBullet: {fileID: 0}
-  piercingBullet: {fileID: 0}
-  slowBullet: {fileID: 0}
+  currentBulletType: {fileID: 2013289005811666221, guid: 5d9e17b6869b28045896c60db60e3682,
+    type: 3}
+  bullet: {fileID: 2013289005811666221, guid: 5d9e17b6869b28045896c60db60e3682, type: 3}
+  homingBullet: {fileID: 2013289005811666221, guid: 393838e6b902fab45bcfb911ceb024bb,
+    type: 3}
+  explosiveBullet: {fileID: 2013289005811666221, guid: 645da9af9e83d444bb59617a3fb25acd,
+    type: 3}
+  piercingBullet: {fileID: 2013289005811666221, guid: 4a17bbfe08817824ea2552614a60a4ca,
+    type: 3}
+  slowBullet: {fileID: 2013289005811666221, guid: 369ec77bfc4297e4ab674371d902125b,
+    type: 3}
 --- !u!1 &708538684989979123
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,25 +3038,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69aabb8b01f88254e94f826fabab5e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootForce: 0
-  upwardForce: 0
-  timeBetweenShooting: 0
-  spread: 0
-  reloadTime: 0
-  timeBetweenShots: 0
-  magazineSize: 0
-  bulletsPerTap: 0
+  shootForce: 10
+  upwardForce: 1
+  timeBetweenShooting: 0.5
+  spread: 5
+  reloadTime: 1
+  timeBetweenShots: 0.5
+  magazineSize: 10
+  bulletsPerTap: 1
   allowButtonHold: 0
   state: 0
   cam: {fileID: 0}
   attackPoint: {fileID: 328646143642069729}
   allowInvoke: 1
-  currentBulletType: {fileID: 0}
-  bullet: {fileID: 0}
-  homingBullet: {fileID: 0}
-  explosiveBullet: {fileID: 0}
-  piercingBullet: {fileID: 0}
-  slowBullet: {fileID: 0}
+  currentBulletType: {fileID: 2013289005811666221, guid: 74c7da75edc651b40ad1bd62c7dcc7d9,
+    type: 3}
+  bullet: {fileID: 2013289005811666221, guid: 74c7da75edc651b40ad1bd62c7dcc7d9, type: 3}
+  homingBullet: {fileID: 2013289005811666221, guid: 393838e6b902fab45bcfb911ceb024bb,
+    type: 3}
+  explosiveBullet: {fileID: 2013289005811666221, guid: 645da9af9e83d444bb59617a3fb25acd,
+    type: 3}
+  piercingBullet: {fileID: 2013289005811666221, guid: 4a17bbfe08817824ea2552614a60a4ca,
+    type: 3}
+  slowBullet: {fileID: 2013289005811666221, guid: 369ec77bfc4297e4ab674371d902125b,
+    type: 3}
 --- !u!1 &8498395527098602380
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,14 +3108,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69aabb8b01f88254e94f826fabab5e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootForce: 0
-  upwardForce: 0
-  timeBetweenShooting: 0
-  spread: 0
-  reloadTime: 0
-  timeBetweenShots: 0
-  magazineSize: 0
-  bulletsPerTap: 0
+  shootForce: 10
+  upwardForce: 1
+  timeBetweenShooting: 0.25
+  spread: 1
+  reloadTime: 1
+  timeBetweenShots: 0.25
+  magazineSize: 10
+  bulletsPerTap: 1
   allowButtonHold: 0
   state: 0
   cam: {fileID: 0}
