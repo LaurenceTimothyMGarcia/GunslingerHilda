@@ -29,7 +29,7 @@ public class SerpentAI : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("Player Obj").transform;
+        player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
 
     }
