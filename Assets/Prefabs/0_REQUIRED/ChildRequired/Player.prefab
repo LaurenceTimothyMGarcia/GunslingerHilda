@@ -1840,6 +1840,7 @@ GameObject:
   - component: {fileID: 4633280687796824890}
   - component: {fileID: 5034345232391400613}
   - component: {fileID: 4045324772918179772}
+  - component: {fileID: 7858896477630443759}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2006,6 +2007,21 @@ MonoBehaviour:
   revolver: {fileID: 8498395527098602380}
   shotgun: {fileID: 8347592650937801448}
   sniper: {fileID: 704189686738999173}
+--- !u!114 &7858896477630443759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4633280687796824892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca1ada459495bbe468300acbef6c2661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  maxHealth: 100
+  health: 100
 --- !u!1 &4633280688058326121
 GameObject:
   m_ObjectHideFlags: 0

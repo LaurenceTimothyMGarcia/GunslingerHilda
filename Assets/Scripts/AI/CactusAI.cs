@@ -151,4 +151,12 @@ public class CactusAI : MonoBehaviour
         DestroyEnemy(gameObject);
     }
 
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            
+        }
+    }
+
 }
