@@ -31,6 +31,9 @@ public class CactusAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    // Animator
+    public Animator animator;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -46,7 +49,9 @@ public class CactusAI : MonoBehaviour
 
         if (playerInSightRange)
         {
+            animator.SetBool("chargingUp", true);
             StartCoroutine(Charge());
+            animator.SetBool("finishRoll", false);
         }
         else
         {
@@ -76,6 +81,9 @@ public class CactusAI : MonoBehaviour
         agent.speed = chargespeed;
         yield return new WaitForSeconds(2);
         ChasePlayer(oldpos);
+
+        animator.SetBool("chargingUp", false);
+        animator.SetBool("finishRoll", true);
 
     }
     private void SearchWalkPoint()

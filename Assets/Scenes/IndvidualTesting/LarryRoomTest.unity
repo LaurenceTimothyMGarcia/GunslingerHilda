@@ -423,7 +423,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 543450651773941249}
+  - {fileID: 899010610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &500964096
@@ -457,6 +457,7 @@ MonoBehaviour:
   attackRange: 0
   playerInSightRange: 0
   playerInAttackRange: 0
+  animator: {fileID: 919132147766324412}
 --- !u!195 &500964097
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -485,6 +486,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5131172758781631853}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &899010609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 899010610}
+  m_Layer: 0
+  m_Name: CactadilloRotate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &899010610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899010609}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 543450651773941249}
+  m_Father: {fileID: 500964095}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &905073393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,6 +1354,7 @@ MonoBehaviour:
   attackRange: 0
   Serpentspace: 0
   playerInAttackRange: 0
+  animator: {fileID: 919132147705961704}
 --- !u!195 &1920113190
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1721,7 +1755,7 @@ Transform:
   m_Children:
   - {fileID: 8879528568684242591}
   - {fileID: 4865064392064114693}
-  m_Father: {fileID: 500964095}
+  m_Father: {fileID: 899010610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450651961034333
 Transform:

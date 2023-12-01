@@ -27,6 +27,9 @@ public class SerpentAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool Serpentspace, playerInAttackRange;
 
+    // Animator
+    public Animator animator;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
