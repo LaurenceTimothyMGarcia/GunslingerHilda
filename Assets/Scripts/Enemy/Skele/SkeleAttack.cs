@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SkeleAttack : SkeleState
 {
     public bool AttackDone;
+
+    public NavMeshAgent enemy;
+
     public SkeleChase skeleChase;
 
+    private GameObject Player;
+
     public float timeBetweenAttacks;
+
+    public Transform playerTransform;
 
     public GameObject projectile;
     public override SkeleState RunCurrentState()
@@ -21,7 +29,10 @@ public class SkeleAttack : SkeleState
         {
             if (!AttackDone)
             {
-                //Lovingly taken from SerpentAI
+
+                enemy.SetDestination(transform.position);
+
+                transform.LookAt(playerTransform);
                 Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
                 rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
                 rb.AddForce(transform.up * 8f, ForceMode.Impulse);
@@ -34,6 +45,11 @@ public class SkeleAttack : SkeleState
         }
     }
 
+    public void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        playerTransform = Player.transform;
+    }
     private void ResetAttack()
     {
         AttackDone = false;
