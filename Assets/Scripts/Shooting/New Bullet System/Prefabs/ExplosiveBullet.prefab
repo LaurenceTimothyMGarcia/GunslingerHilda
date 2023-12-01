@@ -235,12 +235,12 @@ MonoBehaviour:
   bulletLifeTime: 0
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   defaultDirection: {x: 0, y: 0, z: 0}
   defaultForce: 0
   explosion: {fileID: 5357256850933978050, guid: bfd3d17e16af5b34e96126d467af8371,
     type: 3}
-  explosionDamage: 40
+  explosionDamage: 20
   explosionRange: 5
   explosionForce: 20
 --- !u!114 &-6901144697157763790

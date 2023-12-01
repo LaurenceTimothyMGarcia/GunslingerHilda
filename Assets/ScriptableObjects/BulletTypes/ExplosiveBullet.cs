@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExplosiveBullet : Bullet
 {
     public GameObject explosion;
-    public int explosionDamage;
+    public float explosionDamage;
     public float explosionRange;
     public float explosionForce;
 
@@ -18,9 +18,13 @@ public class ExplosiveBullet : Bullet
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, 1 << enemyLayer);
         for (int i = 0; i < enemies.Length; i++)
         {
-            Rigidbody enemyRb = enemies[i].GetComponent<Rigidbody>();
+            Collider currentEnemy = enemies[i];
+            Rigidbody enemyRb = currentEnemy.gameObject.GetComponent<Rigidbody>();
             Vector3 knockbackDirection = enemyRb.gameObject.transform.position - transform.position;
             enemyRb.AddForce(knockbackDirection * explosionForce, ForceMode.Impulse);
+
+            // take damge from explosion
+            currentEnemy.gameObject.GetComponent<DummyHealth>().TakeDamage(explosionDamage);
         }
         Destroy(gameObject);
     }
