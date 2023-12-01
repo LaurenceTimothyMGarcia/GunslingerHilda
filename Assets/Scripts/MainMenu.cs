@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("LarryRoom"); // The scene here is a place holder, substitute LarryRoom for the scene with the first level
+        SceneManager.LoadScene("PrimaryLevel"); // The scene here is a place holder, substitute LarryRoom for the scene with the first level
                                              // this should work once scene build order is decided
     }
 

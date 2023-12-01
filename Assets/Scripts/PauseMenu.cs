@@ -55,7 +55,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
 
         // While Game is Paused, Turn off Standard Cam 
-        Camera.SetActive(false); 
+        // Camera.SetActive(false); 
         
         // While Game is Paused, Turn off Gun Script
         // Gun.enabled = false;
@@ -77,7 +77,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
 
         // While Game is Resumed, turn on Standard Cam
-        Camera.SetActive(true);
+        // Camera.SetActive(true);
         
         // While Game is Resumed, turn on Gun Script 
         // Gun.enabled = true;
@@ -86,8 +86,8 @@ public class PauseMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         // Go To Main Menu Scene 
-        // Time.timeScale = 1f; 
-        // SceneManager.LoadScene("Whatever Scene is the Main Menu")
+        Time.timeScale = 1f; 
+        SceneManager.LoadScene("TitleScene");
     }
 
     public void QuitGame()

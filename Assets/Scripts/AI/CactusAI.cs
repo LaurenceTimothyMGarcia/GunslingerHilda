@@ -28,6 +28,7 @@ public class CactusAI : MonoBehaviour
     // public GameObject projectile;
     private bool currentRolling;
     public float chargeTime;
+    public float damage;
 
     //States
     public float sightRange;
@@ -155,7 +156,8 @@ public class CactusAI : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            
+            Debug.Log("Hit Player: " + col.gameObject);
+            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 

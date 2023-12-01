@@ -7,6 +7,16 @@ public class Spawner : MonoBehaviour
     public MapGenerator mapGen;
     public MeshFilter meshVert;
     public GameObject player;
+
+    public GameObject skeleton;
+    public int skeletonAmt;
+
+    public GameObject snake;
+    public int snakeAmt;
+
+    public GameObject cactus;
+    public int cactusAmt;
+
     public GameObject testSpawn;
 
     public int amountTestObj;
@@ -41,6 +51,10 @@ public class Spawner : MonoBehaviour
         // Sets player location
         SpawnEntity(player, validPoints);
 
+        SpawnBatch(skeleton, validPoints, skeletonAmt);
+        SpawnBatch(snake, validPoints, snakeAmt);
+        SpawnBatch(cactus, validPoints, cactusAmt);
+
         // Debugging to check where the spawn points are
         if (runTestSpawn)
         {
@@ -48,6 +62,14 @@ public class Spawner : MonoBehaviour
             {
                 SpawnEntity(testSpawn, validPoints);
             }
+        }
+    }
+
+    private void SpawnBatch(GameObject entity, List<Vector3> spawnPoints, int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            SpawnEntity(entity, spawnPoints);
         }
     }
 
