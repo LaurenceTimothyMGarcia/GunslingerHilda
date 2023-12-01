@@ -1347,11 +1347,11 @@ MonoBehaviour:
     m_Bits: 128
   health: 10
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
-  timeBetweenAttacks: 0
+  walkPointRange: 50
+  timeBetweenAttacks: 1
   projectile: {fileID: 0}
-  sightRange: 0
-  attackRange: 0
+  sightRange: 10
+  attackRange: 1000
   Serpentspace: 0
   playerInAttackRange: 0
   animator: {fileID: 919132147705961704}
@@ -4170,12 +4170,12 @@ PrefabInstance:
     - target: {fileID: 2733120830572520249, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000021483135
+      value: -0.0000000021483135
       objectReference: {fileID: 0}
     - target: {fileID: 2733120830572520249, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.0334089e-10
+      value: 1.0334089e-10
       objectReference: {fileID: 0}
     - target: {fileID: 2733120830790550172, guid: 5f1e5b1c3e096f146b50da9171c5602a,
         type: 3}

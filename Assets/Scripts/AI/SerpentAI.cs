@@ -45,19 +45,20 @@ public class SerpentAI : MonoBehaviour
 
         if (Serpentspace)
         {
-            Burrow();
+            Patroling();
         }
         else
         {
             AttackPlayer();
         }
     }
-    /*
+    
     private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
+            animator.SetBool("isMoving", true);
             agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
@@ -67,7 +68,6 @@ public class SerpentAI : MonoBehaviour
             walkPointSet = false;
 
     }
-    */
     private void SearchWalkPoint()
     {
         //Calculate random point in range
@@ -82,6 +82,8 @@ public class SerpentAI : MonoBehaviour
 
     private void Burrow()
     {
+        animator.SetBool("isMoving", true);
+
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
@@ -96,6 +98,7 @@ public class SerpentAI : MonoBehaviour
     private void AttackPlayer()
     {
         //Make sure enemy doesn't move
+        animator.SetBool("isMoving", false);
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
@@ -103,6 +106,7 @@ public class SerpentAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             //Attack code here
+            animator.SetTrigger("shoot");
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
