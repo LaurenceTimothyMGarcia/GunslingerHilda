@@ -9,11 +9,6 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100;
     public float health = 100;
 
-    private void Awake()
-    {
-        // healthBar = GetComponentInChildren<EnemyHealth>();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +39,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.CompareTag("Bullet"))
+        Debug.Log("Player Collide");
+        if (col.gameObject.CompareTag("EnemyBullet"))
         {
             TakeDamage(col.gameObject.GetComponent<Damage>().damage);
         }

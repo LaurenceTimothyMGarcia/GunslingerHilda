@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Bullet
   - Gun
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Player
   - Bullet
   - Enemy
-  - 
+  - EnemyBullet
   - 
   - 
   - 

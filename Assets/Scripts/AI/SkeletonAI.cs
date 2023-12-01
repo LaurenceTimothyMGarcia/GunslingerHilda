@@ -12,6 +12,7 @@ public class SkeletonAI : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
+    public float damage;
 
     // Start is called before the first frame update
     void Awake()
@@ -24,5 +25,14 @@ public class SkeletonAI : MonoBehaviour
     void Update()
     {
         agent.SetDestination(player.position);
+    }
+
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Hit Player: " + col.gameObject);
+            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+        }
     }
 }

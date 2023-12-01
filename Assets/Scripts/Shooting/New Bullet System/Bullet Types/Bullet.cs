@@ -31,7 +31,10 @@ public class Bullet : MonoBehaviour
         if (col.gameObject.layer == enemyLayer)
         {
             //Apply damage
+            Debug.Log("Hit player");
         }
+
+        Debug.Log("Destrooyed");
         Destroy(this.gameObject);
     }
 }

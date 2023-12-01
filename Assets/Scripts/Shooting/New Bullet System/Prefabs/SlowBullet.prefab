@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 2203160826608839269}
   - component: {fileID: 6849313380144183785}
   - component: {fileID: 3788139689888027457}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: SlowBullet
-  m_TagString: Bullet
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9118e3bf331c866409b0c39a4d3e5eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletLifeTime: 0
+  bulletLifeTime: 5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -166,4 +166,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6e5afb573026f48846223133278321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
