@@ -7,6 +7,8 @@ Play official builds of the custom terrain generator [here](https://emergencypla
 ## Terrain Generation
 The custom perlin noise terrain generation allows users to have natural flowing canyons and mazes to have a new layout every time.
 
+View an isolated version of the [terrain generator tool here](https://github.com/LaurenceTimothyMGarcia/ProceduralTerrainGenerator)
+
 Custom tools and features adjust elevation levels and modify the noise to allow developers to create different varieties of terrain such as mountain ranges, hills, canyons, etc.
 ### Images
 ![Terrain Generation Iteration 1](https://github.com/LaurenceTimothyMGarcia/GunslingerHilda/blob/main/Assets/Images/Terrain%20Generator%20Iteration%201.png)
